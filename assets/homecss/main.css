@@ -17,7 +17,7 @@ body {
     color: #FFFFFF;
     content: "\f107";
     font-size: 16px;
-    line-height: 1;
+    line-height: 1; 
     font-family: "FontAwesome";
     position: absolute;
     right: -5px;
@@ -328,7 +328,7 @@ px
 }
 
 .join-ignite {
-    background-image: url(/assets/img/home/why-joint-ignite-bg-img.png);
+    background-image: url(/assets/img/home/why-joint-ignite-bg-img.png) !important;
 }
 
 
