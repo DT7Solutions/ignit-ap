@@ -432,3 +432,20 @@ px
    background-image: url(../img/account/register.png);
    background-color: #FFFFFF;
 }
+
+.form-input-item .btn-submit {
+    background-color: #0E0067;
+    border: 2px solid #0E0067;
+    color: #FFFFFF;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 575.98px){
+.off-canvas-content {
+    width: 380px !important;
+}
+}
