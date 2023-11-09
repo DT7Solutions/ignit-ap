@@ -328,7 +328,7 @@ px
 }
 
 .join-ignite {
-    background-image: url(/assets/img/home/why-joint-ignite-bg-img.png) !important;
+    background-image: url("assets/img/home/why-joint-ignite-bg-img.png") !important;
 }
 
 
