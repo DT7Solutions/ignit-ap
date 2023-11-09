@@ -327,9 +327,9 @@ px
     color: #FD9007 !important;
 }
 
-.join-ignite {
-    background-image: url("assets/img/home/why-joint-ignite-bg-img.png") !important;
-}
+/* .join-ignite {
+    background-image: url(/assets/img/home/why-joint-ignite-bg-img.png);
+} */
 
 
 .login-user-btn .btn-cog {
@@ -403,7 +403,7 @@ px
     }
 }
 
-@media only screen and (min-width:481px) and (max-width:1600px){
+@media only screen and (min-width:481px) and (max-width:1920px){
     .table-disp {
         display: block;
     }
@@ -423,4 +423,8 @@ px
     flex-basis: calc(100% - 50px);
     width: 215px;
 }
+.student-register .row:not(.g-0){
+    margin-right: 15px !important;
 }
+}
+
