@@ -428,3 +428,7 @@ px
 }
 }
 
+.user-register{
+   background-image: url(../img/account/register.png);
+   background-color: #FFFFFF;
+}
