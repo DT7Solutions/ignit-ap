@@ -279,6 +279,39 @@
             ]
         });
 
+
+
+           // Brand Logo Slider JS
+           $(".envent-table-content").slick({
+            slidesToShow: 1,
+            arrows: false,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 401,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+        
+
+
+
+
         // Service Details Slider
         $(".service-details-thumb").slick({
             slidesToShow: 1,
