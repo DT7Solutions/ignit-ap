@@ -9,10 +9,10 @@ new repo
 #install env
 #pip install virtualenv
 # create virtual environment
-#python -m venv env-krysta
+#python -m venv env-igniteap
 
 # activate virtual environmentcd
-#env-krysta\Scripts\activate
+#env-igniteap\Scripts\activate
  
  
 # install libs

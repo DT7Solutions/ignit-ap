@@ -1,0 +1,131 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--== Start Page Header Area ==-->
+<div class="page-header-area bg-img" data-bg="{% static 'assets/img/page-header.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-8 m-auto text-center">
+                <div class="page-header-content-inner">
+                    <div class="page-header-content">
+                        <h2> Student Register</h2>
+                        <!-- <p>Businex always try to provide the best Business Solutions for Clinets
+                            to grow up their Business very sharply and smoothly.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
+
+<!--== Start Contact Page Area Wrapper ==-->
+<div class="contact-page-area-wrapper sp-y">
+    <div class="container">
+        <div class="contact-content-wrap">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-area contact-method">
+                        <h3 style="color: #0e0067;">User Registration</h3>
+
+                        <div class="contact-form-wrap">
+                            <form action="#" method="post" id="contact-form" >
+                                  {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="firstname" id="firstname" placeholder="First Name *"
+                                                       required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="lastname" id="lastname" placeholder="Last Name *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="email" name="email" id="email" placeholder="Email address *"
+                                                       required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="phone_no" placeholder="Your Phone"/>
+                                            </label>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" id="username" name="username" id="username" placeholder="user name *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="password" id="password" name="password" placeholder="password *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-input-item mb-0 mt-40">
+                                        <button type="submit" id="register-button" class="btn-outline">Register</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-information contact-method user-register" style="background-color: #ffff;">
+                        <!-- <div class="contact-info-con">
+                            <h3>Contact Info</h3>
+
+                            <div class="widget-item m-0">
+                                <address>
+                                    C/o Totalfresh H.O Above Indian Bank, Gowthama Budha Road, Mangalagiri, Andhra Pradesh 522503 <br>info@igniteap.com
+<br>+91 91330 63307
+                                    
+                                </address>
+                            </div>
+                            <div class="member-social-icons mt-30">
+                                <a href="http://www.facebook.com/Igniteapfest"><i class="mdi mdi-facebook"></i></a>
+                                <a href="http://www.twitter.com/Igniteapfest"><i class="mdi mdi-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/igniteapfest/"><i class="mdi mdi-linkedin"></i></a>
+                                
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Contact Page Area Wrapper ==-->
+{% endblock %}
