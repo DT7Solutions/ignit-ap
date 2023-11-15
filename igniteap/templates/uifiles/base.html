@@ -210,7 +210,8 @@ info@igniteap.com <br>
                 <div class="log-in-content-wrap">
                     <h2>Login</h2>
                     <div class="login-form mtn-15">
-                        <form action="#" method="post">
+                        <form action="#" method="post" id="login-form">
+                            {% csrf_token %}
                             <div class="form-input-item">
                                 <label for="username" class="sr-only">Username</label>
                                 <input type="text" id="username" placeholder="Username" required>
@@ -222,7 +223,7 @@ info@igniteap.com <br>
                             </div>
 
                             <div class="form-input-item">
-                                <button type="submit" class="btn-submit">Login</button>
+                                <button type="button" id="login-btn" class="btn-submit">Login</button>
                             </div>
                         </form>
                     </div>
