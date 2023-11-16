@@ -3,11 +3,15 @@ from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from .models import StudentIdeaform
+from .models import StudentIdeaform,EventTimer
+from datetime import datetime, timedelta
 
 # Create your views here.
 
 def Home(request):
+    timercount = EventTimer.objects.first()
+    x =  timercount
+    print('message ok',timercount)
     if request.method == 'POST':
         username = request.POST.get('username','')
         password = request.POST.get('password','')
@@ -17,8 +21,9 @@ def Home(request):
             print("login successfully")
             return redirect("/")
         else:
-            print("invalid user credentials")
-    return render(request ,'uifiles/index.html') 
+            print("invalid user credentials") 
+       
+    return render(request ,'uifiles/index.html',{"EventTimer":timercount}) 
 
 
 def About(request):
@@ -73,3 +78,33 @@ def studentIdea_form(request):
         messages.success(request, 'Student details added successfully')
     
     return render(request ,'uifiles/student-idea-submission.html') 
+
+# views.py
+
+
+
+
+def countdown_view(request):
+    countdown = Countdown.objects.first()
+    if countdown:
+        target_datetime = datetime.combine(countdown.target_date, datetime.min.time())
+       
+        
+        current_datetime = datetime.now()
+        remaining_time = target_datetime - current_datetime
+        remaining_days = remaining_time.days
+        remaining_hours, remainder = divmod(remaining_time.seconds, 3600)
+        remaining_minutes, remaining_seconds = divmod(remainder, 60)
+    else:
+        remaining_days = remaining_hours = remaining_minutes = remaining_seconds = None
+    print("Remaining Days:", remaining_days)
+    print("Remaining Hours:", remaining_hours)
+    print("Remaining Minutes:", remaining_minutes)
+    print("Remaining Seconds:", remaining_seconds)
+
+    return render(request, 'uifiles/index.html', {
+        'remaining_days': remaining_days,
+        'remaining_hours': remaining_hours,
+        'remaining_minutes': remaining_minutes,
+        'remaining_seconds': remaining_seconds,
+    })

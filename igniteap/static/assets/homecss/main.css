@@ -455,3 +455,153 @@ px
     display: block!important;
     padding: 20px 30px;
 }
+
+/* clock */
+
+.clock {
+    height:65px;
+    
+    color: #563B56;
+    font-size: 50px;
+    font-family: sans-serif;
+    line-height:45px;
+    display: flex;
+   
+    /*background: green;*/
+    overflow: hidden;
+  }
+  
+  /* .clock::before, .clock::after {
+    content: '';
+    width: 280px;
+    height:30px;
+    background: linear-gradient(to top, transparent, black);
+    position: absolute;
+    z-index: 2;
+  } */
+  .clock::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, black);
+  }
+  
+  .clock{
+   
+    border: 5px solid #0000;
+  }
+  
+  .clock > div {
+    display: flex;
+  }
+  
+  .tick {
+    line-height:43px;
+  }
+  
+  .tick-hidden {
+    opacity: 0;
+  }
+  
+  .move {
+    animation: move linear 1s infinite;
+  }
+  
+  @keyframes move {
+    from {
+      transform: translateY(0vh);
+    }
+    to {
+      transform: translateY(-20vh);
+    }
+  }
+  
+  .clock .days{
+    border:3px solid #ebb4c0;
+  }
+  .clock .hours{
+    border:3px solid #ebb4c0;
+    /* border:5px solid #fdc800; */
+  }
+  .clock .minutes{
+    
+    border:3px solid #ebb4c0;
+  }
+  .clock .seconds{
+    
+    border:3px solid #ebb4c0;
+  }
+  
+  
+  
+  .labels div:nth-child(1) p {
+    color: #6a5168;
+    margin: 0 5px;
+  }
+  
+  .labels div:nth-child(2) p {
+    color: #6a5168;
+    margin: 0 41px;
+  }
+  .labels div:nth-child(3) p {
+    color: #6a5168;
+    margin: 0 0px;
+  }
+  .labels div:nth-child(4) p {
+    color: #6a5168;
+    margin: 0 25px;
+  }
+  
+  @media only screen and (min-width: 320px) and (max-width: 560px) {
+    .clock {
+      /* background-color: red; */
+      /* margin-left: 26px; */
+      /* margin-left:2%; */
+      display:flex;
+      justify-content: center;
+     
+   
+      
+    }
+    .youtube-video{
+      height:200px!important;
+    }
+    .whatsapp{
+      right: 6%!important;
+      bottom: 14%!important;
+    }
+    .labels div:nth-child(1) p {
+      color: #6a5168;
+      
+      margin:0 12px;
+    }
+    
+    .labels div:nth-child(2) p {
+      color: #6a5168;
+      
+      margin: 0 35px;
+    }
+    .labels div:nth-child(3) p {
+      color: #6a5168;
+     
+      margin: 0 5px;
+    }
+    .labels div:nth-child(4) p {
+      color: #6a5168;
+     
+      margin: 0 19px;
+    }
+    .d-flex.labels{
+      display:flex;
+      justify-content: center!important;
+    }
+    
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .timmer-block {
+      /* background-color: red; */
+      margin-left: 190px;
+    }
+  }
+  
+  .number{
+    font-weight: 600;
+  }
