@@ -1,5 +1,4 @@
 // Registration form
-
 $(document).ready(function(){
     $('#register-button').click(function(){
 
@@ -11,7 +10,6 @@ $(document).ready(function(){
         let password = $ ('#password').val()
         let confirm_passw = $ ('#confirm_password').val()
         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
-
 
         let data = new FormData()
         data.append("firstname", firstname),
@@ -31,17 +29,14 @@ $(document).ready(function(){
             cache:false,
             data:data,
 
-            success:function(data, xhr){
-                $('#registration-form')[0].reset();
-                
-                if(xhr === 'success'){
-                    window.location.href = '/';
+            success:function(data,status, xhr){
+                $('#register-form')[0].reset();
+                if(data.success === true){
+                    window.location.href = '/studentideaform/';
                 } else{
-
+                    alert(data.error)
+                    window.location.href ='/register/'
                 }
-
-                // alert("success, submitted data")
-                // $('#success-message').html("Success: Data submitted successfully");
             },
             error:function(data){
                 alert("fail, submitted data")
@@ -51,7 +46,7 @@ $(document).ready(function(){
 })
 
 
-//login form
+// login form
 $(document).ready(function(){
    
     $('#login-btn').click(function(){
@@ -59,27 +54,31 @@ $(document).ready(function(){
         let password = $('#password').val()
         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
 
-        let data= new FormData()
-        data.append('username',username),
-        data.append('password',password),
-        data.append("csrfmiddlewaretoken", csrfmiddlewaretoken)
+        let data = new FormData()
+        data.append('u_name', username),
+        data.append('ps_word', password),
+        data.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
 
 
         $.ajax({
             type:'POST',
-            url:'/',
+            url:'/login/',
             processData:false,
             contentType:false,
             cache:false,
             data:data,
 
-
             success:function(data){
                 $('#login-form')[0].reset();
-                alert("success, submitted date")
+                if(data.success === true){
+                    window.location.href = '/studentideaform/';
+                } else{
+                    alert("Invalid user credentials")
+                    window.location.href ='/'
+                }
             },
             error:function(data){
-                alert("fail, submitted data")
+                alert("Fail, submitted data");
             }
         })
     })
@@ -92,57 +91,123 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
-    $('#student-btn').click(function(){
+// Student Registration form
+// $(document).ready(function(){
+//     $('#student-btn').click(function(){
+//         let firstname = $('#firstname').val()
+//         let lastname = $('#lastname').val()
+//         let address = $('#address').val()
+//         let email = $('#email').val()
+//         let phone = $('#phone').val()
+//         let collagename = $('#collegename').val()
+//         let branchname = $('#branchname').val()
+//         let ideadescription = $('#ideadescription').val()
+//         let uploadurl = $('#uploadurl').val()
+//         let file = $('#pdfdocument')[0].files[0]; 
+//         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
 
+
+//         let data = new FormData()
+//         data.append('firstname',firstname),
+//         data.append('lastname', lastname),
+//         data.append('address', address),
+//         data.append('email', email),
+//         data.append('phone', phone),
+//         data.append('collagename', collagename),
+//         data.append('branchname', branchname),
+//         data.append('ideadescription', ideadescription),
+//         data.append('uploadurl', uploadurl),
+//         data.append('pdfdocument', file);
+//         data.append('csrfmiddlewaretoken',csrfmiddlewaretoken)
+
+//         $.ajax({
+//             type:'POST',
+//             url:'/ideaform/',
+//             processData:false,
+//             contentType:false,
+//             cache:false,
+//             mimeType:"multipart/form-data",
+//             data:data,
+
+//             success:function(data){
+//                 $('#student-form')[0].reset();
+//                 alert("success, submitted data")
+//             },
+//             error:function(data){
+//                 alert("fail, submitted data")
+//             }
+//         })
+//     })
+// })
+
+
+$(document).ready(function(){
+    $('#student-btn').submit(function(event){
+        event.preventDefault();
         let firstname = $('#firstname').val()
         let lastname = $('#lastname').val()
         let address = $('#address').val()
         let email = $('#email').val()
         let phone = $('#phone').val()
-        let collegname = $('#collegename').val()
+        let collagename = $('#collegename').val()
         let branchname = $('#branchname').val()
         let ideadescription = $('#ideadescription').val()
-        let file = $('#pdfdocument')[0].files[0];
         let uploadurl = $('#uploadurl').val()
+        let file = $('#pdfdocument')[0].files[0]; 
         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
 
-
         let data = new FormData()
-        data.append('firstname', firstname),
-        data.append('lastname', lastname),
-        data.append('address', address),
-        data.append('email', email),
-        data.append('phone', phone),
-        data.append('collegname', collegname),
-        data.append('branchname', branchname),
-        data.append('ideadescription', ideadescription),
-        data.append('pdfdocument', file),
-        data.append('uploadurl', uploadurl),
+        data.append('firstname', firstname)
+        data.append('lastname', lastname)
+        data.append('address', address)
+        data.append('email', email)
+        data.append('phone', phone)
+        data.append('collagename', collagename)
+        data.append('branchname', branchname)
+        data.append('ideadescription', ideadescription)
+        data.append('uploadurl', uploadurl)
+        data.append('pdfdocument', file)
         data.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
 
         $.ajax({
-            type:'POST',
-            url:'/ideaform/',
-            processData:false,
-            contentType:false,
-            cache:false,
-            mimeType:"multipart/form-data",
-            data:data,
+            type: 'POST',
+            url: '/studentideaform/',
+            processData: false,
+            contentType: false,
+            cache: false,
+            mimeType: 'multipart/form-data',
+            data: data,
 
-
-            success:function(data){
-                $('#student-form')[0].reset();
-                alert("Success, Submitted data")
+            success:function(data, status,xhr){
+                $('#login-form')[0].reset();
+                // alert("data save sucessfully")
+                if(data.success === true){
+                    window.location.href = '/studentideaform/';
+                }else{
+                    window.location.href = '/'
+                }
             },
-
+          
+                // if(data.success === true){
+                //     alert(data.message)
+                //     // window.location.href = '/';
+                // } else{
+                //     alert("data does not save sucessfully")
+                //     window.location.href ='/ideaform/'
+                // }
             error:function(data){
-                alert("fail, Submitted data")
+                alert("data does not save sucessfully");
             }
-        })
+        });
+    });
+});
 
-    })
-})
+
+
+
+
+//     })
+// })
 
 
 // function updateCountdown() {

@@ -23,7 +23,7 @@ class StudentIdeaform(models.Model):
     Idea_Description = models.CharField(max_length=500)
     Upload_url = models.URLField()
     Approved = models.IntegerField(choices=STATUS, default=0)
-    Date = models.DateField()
+    Date = models.DateTimeField(default=datetime.now())
     file = ContentTypeRestrictedFileField(
         upload_to = 'pdf',
         content_types = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'],

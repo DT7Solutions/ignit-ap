@@ -21,6 +21,49 @@
 </div>
 <!--== End Page Header Area ==-->
 
+
+
+<div class="container-fluid pt-5">
+    <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th scope="col">S No</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Collegename</th>
+            <th scope="col">Branchname</th>
+            <th scope="col">Idea Description</th>
+            <th scope="col">Upload Url</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for item in student_submit %}
+          <tr>
+            <th scope="row">1</th>
+            <td>{{item.Firstname}}</td>
+            <td>{{ item.Lastname }}</td>
+            <td>{{item.Address}}</td>
+            <td>{{item.Email}}</td>
+            <td>{{item.Phone}}</td>
+            <td>{{item.College_Name}}</td>
+            <td>{{item.Branch_Name}}</td>
+            <td>{{item.Idea_Description}}</td>
+            <td>{{item.Upload_url}}</td>
+            <td>{{item.Date}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+</div>
+
+
+
 <!--== Start Contact Page Area Wrapper ==-->
 <div class="contact-page-area-wrapper sp-y">
     <div class="container">
@@ -31,14 +74,14 @@
                         <h3 style="color: #0e0067;">Student Idea Submission</h3>
 
                         <div class="contact-form-wrap mx-auto">
-                            <form action="#" method="post"  id="student-form" class="student-register">
+                            <!-- id="student-form" -->
+                            <form action="#" method="post" id="student-btn"  class="student-register" >
                                  {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="firstname" id="firstname" placeholder="First Name *"
-                                                       required/>
+                                                <input type="text" name="firstname" id="firstname" placeholder="First Name *" required/>
                                             </label>
                                         </div>
                                     </div>
@@ -46,7 +89,7 @@
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="lastname" name="lastname" placeholder="Last Name *" required/>
+                                                <input type="text" id="lastname" name="lastname" placeholder="Last Name *" required/>
                                             </label>
                                         </div>
                                     </div>
@@ -54,16 +97,16 @@
                                     <div class="col-md-12">
                                         <div class="single-input-item">
                                             <label for="con_message" class="sr-only m-0"></label>
-                                            <textarea id="address" name="address" cols="50" rows="4"
-                                                      placeholder="Address *" required></textarea>
+                                            <textarea id="address" name="address" cols="50" rows="4" placeholder="Address *" required></textarea>
+                                                      
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="email" name="email" id="email" placeholder="Email address *"
-                                                       required/>
+                                                <input type="email" name="email" id="email" placeholder="Email address *" required/>
+                                                       
                                             </label>
                                         </div>
                                     </div>
@@ -71,7 +114,7 @@
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="phone" id="phone" placeholder="Your Phone"/>
+                                                <input type="text" name="phone" id="phone" placeholder="Your Phone" required/>
                                             </label>
                                         </div>
                                     </div>
@@ -118,7 +161,7 @@
                                     
 
                                     <div class="single-input-item mb-0 mt-40">
-                                        <button type="button" id="student-btn" class="btn-outline">Submit</button>
+                                        <button type="submit"  class="btn-outline">Submit</button>
                                     </div>
 
                                     <!-- <button type="submit">Register</button> -->
