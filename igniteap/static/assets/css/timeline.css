@@ -355,3 +355,80 @@ Main components
 .log-out{
   color: red !important;
 } 
+
+
+
+/*--------------------------Card Flip----------------------------------------*/
+
+.card-flip > div {
+  backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+  background-color:lightgray !important; /* #60c5e0 */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius:5px;
+  
+}
+
+.card-front h3{
+  /* padding:70px 0px; */
+  line-height:250px;
+  text-align: center;
+  color: #0f0167 !important;
+}
+
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  /* background-image: linear-gradient(to right, rgb(253,144,7) 5%,rgba(rgb(253,144,7))54%,rgba(rgb(253,144,7))94%) !important; */
+  background-color: #fff;   /* rgb(253,144,7); */
+  border-radius: 5px;
+}
+
+.card-back h3{
+  color: #0f0167 !important;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+  
+}
+  
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+}
+.card-flip .card-title {
+  color: #ffffff;
+  font-weight: 600;
+
+}
+
+.card-body{
+  height: 40vh;
+}
+
+.blog-sec-main p{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.blog-sec-main .card-body h3{
+  margin-top: 22px;
+}

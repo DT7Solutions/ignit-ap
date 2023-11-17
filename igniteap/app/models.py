@@ -44,6 +44,7 @@ class EventTimer(models.Model):
     target_datetime = models.DateTimeField()
 
 
-
     def __str__(self):
         return self.EventName
+
+
