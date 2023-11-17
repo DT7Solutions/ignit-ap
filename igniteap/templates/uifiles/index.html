@@ -486,24 +486,25 @@
         </div>
         </div>
         <div class="row service-list">
-          <div class="col-sm-12 col-md-4 mb-5">
-            <div class="card card-flip h-100">
-                <div class="card-front" style="background-image: url(../../static/assets/img/event-description.png); background-size: cover; height: 100%; opacity:0.7; background-color: rgba(0, 0, 0, 0.945); ">
-                  <div class="card-body" >
-                      <h3 class="card-title front-title" style="font-size: 25px; color:red">Product voice crafting</h3>
-                  </div>
-              </div>
-              <div class="card-back">
-                  <div class="card-body">
-                      <h3 class="card-title" style="font-size: 25px;" >Product voice crafting</h3>
-                      <p class="card-text" >Ever wondered how biscuits have different sounds? Your Brand Product can also have a sound that can be uniquely identified which can be used in your brand marketing campaigns.
-                      </p>
-                      <a href="" class="btn btn-warning mb-4">View More</a>
-                  </div>
-              </div>
+            {% for item in event %}
+            <div class="col-sm-12 col-md-4 mb-5">
+                <div class="card card-flip h-100">
+                    <div class="card-front" style="background-image: url({{ item.image.url }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
+                        <div class="card-body">
+                            <h3 class="card-title front-title" style="font-size: 25px; color: red">{{ item.title }}</h3>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-body">
+                            <h3 class="card-title" style="font-size: 25px;">{{ item.title }}</h3>
+                            <p class="card-text">{{ item.description }}</p>
+                            <a href="{% url 'event_detail' item.ID %}" class="btn btn-warning mb-4">View More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-12 col-md-4 mb-5">
+        {% endfor %}
+          <!-- <div class="col-sm-12 col-md-4 mb-5">
             <div class="card card-flip h-100">
               <div class="card-front">
                   <div class="card-body">
@@ -537,9 +538,9 @@
               </div>
             </div>
           </div>
-          </div>
+          </div> -->
 
-          <div class="row service-list2 ">
+          <!-- <div class="row service-list2 ">
             <div class="col-md-4 mb-5">
               <div class="card card-flip h-100">
                 <div class="card-front">
@@ -564,7 +565,7 @@
                     <div class="card-body">
                       <h3 class="card-title" style="font-size: 25px;">Product Process</h3>  
                       <!-- <h3 class="card-title" style="font-size: 25px;">Product process shoot for consumer experience</h3> -->
-                    </div>
+                    <!-- </div>
                 </div>
                 <div class="card-back h-100">
                     <div class="card-body">
@@ -591,7 +592,7 @@
                         <a href="" class="btn btn-warning">View More</a>
                     </div>
                 </div>
-              </div>
+              </div> -->
       </div>
     </div>
   </section>

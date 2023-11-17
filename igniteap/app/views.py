@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentIdeaform,EventTimer
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -36,7 +36,8 @@ def Home(request):
     timercount = EventTimer.objects.first()
     x =  timercount
     print('message ok',timercount)
-    return render(request ,'uifiles/index.html',{"EventTimer":timercount}) 
+    events = Event.objects.all()
+    return render(request ,'uifiles/index.html',{"EventTimer":timercount,"event":events}) 
 
 
 def About(request):
@@ -94,6 +95,19 @@ def studentIdea_form(request):
         messages.success(request, 'Student details added successfully')
     
     return render(request ,'uifiles/student-idea-submission.html',{'student_submit':student_submit}) 
+
+
+
+def Event_detail(request,event_id):
+    event_info= Event.objects.get(ID=event_id)
+    agenda_dates= AgendaDay.objects.filter(event=event_info)
+
+    return render(request, 'uifiles/events-details.html',{"eventinfo":event_info,"agenda":agenda_dates})
+
+
+
+
+
 
 # views.py
 

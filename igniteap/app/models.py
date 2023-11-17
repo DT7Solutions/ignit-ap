@@ -48,3 +48,46 @@ class EventTimer(models.Model):
         return self.EventName
 
 
+
+from django.db import models
+
+class Event(models.Model):
+    ID = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateField()
+    location = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='event_images/')
+    # Add other fields as needed
+
+    def __str__(self):
+        return self.title
+
+class AgendaDay(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    date = models.DateField()
+    # Add other fields as needed
+
+    def __str__(self):
+        return f"{self.event.title} - {self.date}"
+
+class Panelist(models.Model):
+    agenda_day = models.ForeignKey(AgendaDay, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    companeyName = models.CharField(max_length=255,default='')
+    designation = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='panelist_images/')  #
+    def __str__(self):
+        return f"{self.name} - {self.name}"
+
+# class Panel(models.Model):
+#     agenda_day = models.ForeignKey(AgendaDay, on_delete=models.CASCADE)
+#     title = models.CharField(max_length=255)
+#     description = models.TextField()
+#     start_time = models.TimeField()
+#     end_time = models.TimeField()
+#     # Add other fields as needed
+
+#     def __str__(self):
+#         return f"{self.agenda_day.event.title} - {self.agenda_day.date} - {self.title}"
+

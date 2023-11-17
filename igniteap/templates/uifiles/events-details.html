@@ -1,0 +1,224 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--== Start Page Header Area ==-->
+<div class="page-header-area bg-img" data-bg="{% static 'assets/img/page-header.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-8 m-auto text-center">
+                <div class="page-header-content-inner">
+                    <div class="page-header-content">
+                        <h2> Event Details</h2>
+                        <!-- <p>Businex always try to provide the best Business Solutions for Clinets
+                            to grow up their Business very sharply and smoothly.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
+
+<!--== Start Contact Page Area Wrapper ==-->
+<div class="contact-page-area-wrapper sp-y">
+    <div class="container">
+        <div class="contact-content-wrap">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-area contact-method">
+                        {% if eventinfo %}
+                        <div class="contact-form-wrap">
+                            <h3 style="color: #0e0067;">{{eventinfo.title}}</h3>
+                            <p>{{eventinfo.description}}</p>
+
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="pricing-plan-buttons mb-55">
+                                        <ul class="nav justify-content-center" role="tablist">
+                                            {% for item in agenda %}
+                                            
+                                            <li><a class="active" href="#monthly" data-bs-toggle="tab" aria-selected="true" role="tab">{{item.date}}</a></li>
+                            <!-- <button class="btn btn-sm  btn-warning"><a href="#yearly">{{item.date}}</a></button> -->
+                            {% endfor %}
+
+                                            <!-- <li><a href="#yearly" data-bs-toggle="tab" aria-selected="false" role="tab" class="" tabindex="-1">Yearly</a></li> -->
+                                        </ul>
+                                    </div>
+                    
+                                    <div class="pricing-plan-content-wrap">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active show" id="monthly" role="tabpanel">
+                                                <div class="pricing-plan-content">
+                                                    <div class="row mtn-30">
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Free</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">00</span>
+                                                                        <span class="price-type">/ mo</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Small Business</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">49</span>
+                                                                        <span class="price-type">/ mo</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Professional</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">99</span>
+                                                                        <span class="price-type">/ mo</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="yearly" role="tabpanel">
+                                                <div class="pricing-plan-content">
+                                                    <div class="row mtn-30">
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Starter</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">77</span>
+                                                                        <span class="price-type">/ yer</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Small Business</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">149</span>
+                                                                        <span class="price-type">/ yer</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                    
+                                                        <div class="col-md-6 col-lg-4">
+                                                            <div class="pricing-plan-item">
+                                                                <div class="pricing-plan-header">
+                                                                    <h6 class="plan-name">Professional</h6>
+                                                                    <div class="plan-price">
+                                                                        <span class="dollar">$</span>
+                                                                        <span class="price">299</span>
+                                                                        <span class="price-type">/ yer</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="pricing-plan-body">
+                                                                    <ul class="price-list">
+                                                                        <li>Branding strategy identity</li>
+                                                                        <li>Marketing campaign &amp; PR</li>
+                                                                        <li>Website and app designing</li>
+                                                                        <li>Content development</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="pricing-plan-footer">
+                                                                    <a href="#" class="btn-outline">Sign Up Today</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                           
+                            
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Contact Page Area Wrapper ==-->
+{% endblock %}
