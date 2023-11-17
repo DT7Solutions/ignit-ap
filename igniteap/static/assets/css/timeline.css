@@ -352,9 +352,6 @@ Main components
     transform: translateX(0);
   }
 }
-.log-out{
-  color: red !important;
-} 
 
 
 
@@ -380,11 +377,12 @@ Main components
   
 }
 
+
 .card-front h3{
   /* padding:70px 0px; */
   line-height:250px;
   text-align: center;
-  color: #0f0167 !important;
+  color: #fdfdfd !important;
 }
 
 
