@@ -352,3 +352,6 @@ Main components
     transform: translateX(0);
   }
 }
+.log-out{
+  color: red !important;
+} 

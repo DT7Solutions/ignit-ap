@@ -73,8 +73,8 @@ $(document).ready(function(){
                 if(data.success === true){
                     window.location.href = '/studentideaform/';
                 } else{
-                    alert("Invalid user credentials")
-                    window.location.href ='/'
+                    alert(data.error)
+                    window.location.href ='/login/'
                 }
             },
             error:function(data){
@@ -91,56 +91,8 @@ $(document).ready(function(){
 
 
 
-// Student Registration form
-// $(document).ready(function(){
-//     $('#student-btn').click(function(){
-//         let firstname = $('#firstname').val()
-//         let lastname = $('#lastname').val()
-//         let address = $('#address').val()
-//         let email = $('#email').val()
-//         let phone = $('#phone').val()
-//         let collagename = $('#collegename').val()
-//         let branchname = $('#branchname').val()
-//         let ideadescription = $('#ideadescription').val()
-//         let uploadurl = $('#uploadurl').val()
-//         let file = $('#pdfdocument')[0].files[0]; 
-//         let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
 
-
-//         let data = new FormData()
-//         data.append('firstname',firstname),
-//         data.append('lastname', lastname),
-//         data.append('address', address),
-//         data.append('email', email),
-//         data.append('phone', phone),
-//         data.append('collagename', collagename),
-//         data.append('branchname', branchname),
-//         data.append('ideadescription', ideadescription),
-//         data.append('uploadurl', uploadurl),
-//         data.append('pdfdocument', file);
-//         data.append('csrfmiddlewaretoken',csrfmiddlewaretoken)
-
-//         $.ajax({
-//             type:'POST',
-//             url:'/ideaform/',
-//             processData:false,
-//             contentType:false,
-//             cache:false,
-//             mimeType:"multipart/form-data",
-//             data:data,
-
-//             success:function(data){
-//                 $('#student-form')[0].reset();
-//                 alert("success, submitted data")
-//             },
-//             error:function(data){
-//                 alert("fail, submitted data")
-//             }
-//         })
-//     })
-// })
-
-
+// student registred data
 $(document).ready(function(){
     $('#student-btn').submit(function(event){
         event.preventDefault();
@@ -329,83 +281,83 @@ $(document).ready(function(){
 
 
 
-function updateCountdown() {
-    let eventdate_time = document.getElementById('eventdatetime');
-    let mydate = eventdate_time.innerHTML;
+// function updateCountdown() {
+//     let eventdate_time = document.getElementById('eventdatetime');
+//     let mydate = eventdate_time.innerHTML;
 
-    // Attempt to parse the date string
-    let originalDate = parseDateString(mydate);
+//     // Attempt to parse the date string
+//     let originalDate = parseDateString(mydate);
 
-    if (!originalDate || isNaN(originalDate.getTime())) {
-        console.error('Error parsing date:', mydate);
-        return;
-    }
+//     if (!originalDate || isNaN(originalDate.getTime())) {
+//         console.error('Error parsing date:', mydate);
+//         return;
+//     }
 
-    var options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    var formattedDateString = originalDate.toLocaleString('en-US', options);
-    console.log(formattedDateString);
+//     var options = { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+//     var formattedDateString = originalDate.toLocaleString('en-US', options);
+//     console.log(formattedDateString);
 
-    var countdownDate = originalDate.getTime();
-    var now = new Date().getTime();
-    var timeRemaining = countdownDate - now;
+//     var countdownDate = originalDate.getTime();
+//     var now = new Date().getTime();
+//     var timeRemaining = countdownDate - now;
 
-    if (timeRemaining <= 0) {
-        document.querySelector(".clock").innerHTML = "Countdown expired!";
-        return;
-    }
+//     if (timeRemaining <= 0) {
+//         document.querySelector(".clock").innerHTML = "Countdown expired!";
+//         return;
+//     }
 
-    var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+//     var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+//     var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+//     var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-    updateContainer(document.querySelector(".days"), days.toString());
-    updateContainer(document.querySelector(".hours"), hours.toString());
-    updateContainer(document.querySelector(".minutes"), minutes.toString());
-    updateContainer(document.querySelector(".seconds"), seconds.toString());
-}
+//     updateContainer(document.querySelector(".days"), days.toString());
+//     updateContainer(document.querySelector(".hours"), hours.toString());
+//     updateContainer(document.querySelector(".minutes"), minutes.toString());
+//     updateContainer(document.querySelector(".seconds"), seconds.toString());
+// }
 
-function parseDateString(dateString) {
-    // Remove "at" and replace "midnight" with "00:00:00"
-    var cleanedDateString = dateString.replace(' at ', ' ').replace('midnight', '00:00:00');
+// function parseDateString(dateString) {
+//     // Remove "at" and replace "midnight" with "00:00:00"
+//     var cleanedDateString = dateString.replace(' at ', ' ').replace('midnight', '00:00:00');
     
-    // Try to parse the date string
-    var parsedDate = new Date(cleanedDateString.replace('.', ''));
+//     // Try to parse the date string
+//     var parsedDate = new Date(cleanedDateString.replace('.', ''));
     
-    return parsedDate;
-}
+//     return parsedDate;
+// }
 
-function updateContainer(container, newTime) {
-    var time = newTime.split("");
+// function updateContainer(container, newTime) {
+//     var time = newTime.split("");
 
-    if (time.length === 1) {
-        time.unshift("0");
-    }
+//     if (time.length === 1) {
+//         time.unshift("0");
+//     }
 
-    var first = container.firstElementChild;
-    if (first.lastElementChild.textContent !== time[0]) {
-        updateNumber(first, time[0]);
-    }
+//     var first = container.firstElementChild;
+//     if (first.lastElementChild.textContent !== time[0]) {
+//         updateNumber(first, time[0]);
+//     }
 
-    var last = container.lastElementChild;
-    if (last.lastElementChild.textContent !== time[1]) {
-        updateNumber(last, time[1]);
-    }
-}
+//     var last = container.lastElementChild;
+//     if (last.lastElementChild.textContent !== time[1]) {
+//         updateNumber(last, time[1]);
+//     }
+// }
 
-function updateNumber(element, number) {
-    var second = element.lastElementChild.cloneNode(true);
-    second.textContent = number;
+// function updateNumber(element, number) {
+//     var second = element.lastElementChild.cloneNode(true);
+//     second.textContent = number;
 
-    element.appendChild(second);
-    element.classList.add("move");
+//     element.appendChild(second);
+//     element.classList.add("move");
 
-    setTimeout(function () {
-        element.classList.remove("move");
-    }, 990);
-    setTimeout(function () {
-        element.removeChild(element.firstElementChild);
-    }, 990);
-}
+//     setTimeout(function () {
+//         element.classList.remove("move");
+//     }, 990);
+//     setTimeout(function () {
+//         element.removeChild(element.firstElementChild);
+//     }, 990);
+// }
 
-setInterval(updateCountdown, 1000);
+// setInterval(updateCountdown, 1000);

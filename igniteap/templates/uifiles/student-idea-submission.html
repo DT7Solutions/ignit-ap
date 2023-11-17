@@ -28,15 +28,15 @@
         <thead>
           <tr>
             <th scope="col">S No</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Address</th>
+            <th scope="col">Name</th>
+         
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
-            <th scope="col">Collegename</th>
-            <th scope="col">Branchname</th>
+            <th scope="col">Status</th>
             <th scope="col">Idea Description</th>
-            <th scope="col">Upload Url</th>
+            <!-- <th scope="col">Branchname</th> 
+            
+            <th scope="col">Upload Url</th> -->
             <th scope="col">Date</th>
           </tr>
         </thead>
@@ -45,16 +45,14 @@
             {% for item in student_submit %}
           <tr>
             <th scope="row">1</th>
-            <td>{{item.Firstname}}</td>
-            <td>{{ item.Lastname }}</td>
-            <td>{{item.Address}}</td>
+            <td>{{item.Firstname}} {{ item.Lastname }}</td>
             <td>{{item.Email}}</td>
             <td>{{item.Phone}}</td>
-            <td>{{item.College_Name}}</td>
-            <td>{{item.Branch_Name}}</td>
+            <td>{{item.Approved}}</td>
+            <!-- <td>{{item.Branch_Name}}</td> -->
             <td>{{item.Idea_Description}}</td>
-            <td>{{item.Upload_url}}</td>
-            <td>{{item.Date}}</td>
+            <!-- <td>{{item.Upload_url}}</td> -->
+            <td>{{item.Date|date:"Y-m-d"}}</td>
           </tr>
           {% endfor %}
 

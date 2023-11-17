@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.db import models
 from .app import ContentTypeRestrictedFileField
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,8 +9,9 @@ from .app import ContentTypeRestrictedFileField
 class StudentIdeaform(models.Model):
 
     STATUS = (
-        (0, 'False'),
-        (1, 'True')
+        ('Proccing', 'Proccing'),
+        ('Approved', 'Approved'),
+        ('Rejected', 'Rejected')
     )
 
     Firstname = models.CharField(max_length=100)
@@ -22,8 +23,10 @@ class StudentIdeaform(models.Model):
     Branch_Name = models.CharField(max_length=50)
     Idea_Description = models.CharField(max_length=500)
     Upload_url = models.URLField()
-    Approved = models.IntegerField(choices=STATUS, default=0)
+    Approved = models.CharField(choices=STATUS, max_length=30, default='Proccing')
+    Reason = models.CharField(max_length=500, default="")
     Date = models.DateTimeField(default=datetime.now())
+    user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
     file = ContentTypeRestrictedFileField(
         upload_to = 'pdf',
         content_types = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
