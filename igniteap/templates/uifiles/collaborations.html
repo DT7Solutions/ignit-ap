@@ -1,0 +1,153 @@
+{% extends 'uifiles/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--== Start Page Header Area ==-->
+<div class="page-header-area bg-img" data-bg="{% static 'assets/img/page-header.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-8 m-auto text-center">
+                <div class="page-header-content-inner">
+                    <div class="page-header-content">
+                        <h2>Collaborations</h2>
+                        <!-- <p>Businex always try to provide the best Business Solutions for Clinets
+                            to grow up their Business very sharply and smoothly.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
+
+<!--== Start Contact Page Area Wrapper ==-->
+<div class="contact-page-area-wrapper sp-y">
+    <div class="container">
+        <div class="contact-content-wrap">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-area contact-method">
+                        <h3 style="color: #0e0067;">Collaborations</h3>
+
+                        <div class="contact-form-wrap">
+                            <form action="#" method="post" id="collaborate-btn" class="collaborate-form">
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="firstname" id="firstname" placeholder="First Name *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="lastname" id="lastname" placeholder="Last Name *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="email" name="email" id="email" placeholder="Email address *"
+                                                       required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="number" name="phone" id="phone" placeholder="Your Phone *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="brand" id="brand" placeholder="Name of Brand/Agency *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" name="industry" id="industry" placeholder="Industry *" required/>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="question ">
+                                        <div class=" h5  ch-box" ><b>Kind of collaboration?</b></div>
+                                        <div>
+                                           
+                                            <label for="Instagram" class="script ">Instagram
+                                                <input type="checkbox" id="Instagram" name="check" value="Instagram">
+                                                <span class="geekmark"></span>
+                                            </label>
+        
+                                            <label for="Youtube" class="script">Youtube
+                                                <input type="checkbox" id="Youtube" name="check" value="Youtube">
+                                            </label>
+        
+                                            <label for="YoutubeReel" class="script"> YoutubeReel
+                                                <input type="checkbox" id="YoutubeReel" name="check" value="YoutubeReel">
+                                            </label>
+                                            <label for="FaceBook" class="script"> FaceBook
+                                                <input type="checkbox" id="FaceBook" name="check" value="FaceBook">
+                                            </label>
+                                            <label for="Other" class="script"> Other
+                                                <input type="checkbox" id="Other" name="check" value="Other"  onchange="yesnoCheck(this);">
+                                            </label>
+                                        </div>
+        
+                                        <div class="col-6 mt-2" id="ifYes1">
+                                            <input type="text" name="ifYes" class="form-control" id="ifYes"
+                                                placeholder="write detail what are looking for">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="single-input-item mb-0 mt-40 mt-4">
+                                        <button type="submit"  class="btn-outline">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-information contact-method user-register" style="background-color: #ffff;">
+                        <!-- <div class="contact-info-con">
+                            <h3>Contact Info</h3>
+
+                            <div class="widget-item m-0">
+                                <address>
+                                    C/o Totalfresh H.O Above Indian Bank, Gowthama Budha Road, Mangalagiri, Andhra Pradesh 522503 <br>info@igniteap.com
+<br>+91 91330 63307
+                                    
+                                </address>
+                            </div>
+                            <div class="member-social-icons mt-30">
+                                <a href="http://www.facebook.com/Igniteapfest"><i class="mdi mdi-facebook"></i></a>
+                                <a href="http://www.twitter.com/Igniteapfest"><i class="mdi mdi-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/igniteapfest/"><i class="mdi mdi-linkedin"></i></a>
+                                
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Contact Page Area Wrapper ==-->
+{% endblock %}
