@@ -44,7 +44,8 @@ def Home(request):
 def About(request):
     return render(request ,'uifiles/about.html') 
 
-
+def Speakers(request):
+    return render(request ,'uifiles/speakers.html') 
 
 def contact(request):
     return render(request ,'uifiles/contact.html') 
