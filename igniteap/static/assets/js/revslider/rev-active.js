@@ -13,7 +13,7 @@ $(document).ready(function () {
             onHoverStop: "off",
             arrows: {
                 style: "uranus",
-                enable: true,
+                enable: false,
                 hide_onmobile: false,
                 hide_onleave: false,
                 tmp: '',

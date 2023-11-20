@@ -41,6 +41,7 @@ class StudentIdeaform(models.Model):
 
 class EventTimer(models.Model):
     EventName = models.CharField(max_length=100)
+    Eventdescription = models.TextField(default='')
     image = models.ImageField(upload_to='event_banners/')
     Upload_url = models.URLField(default="")
     target_datetime = models.DateTimeField()
