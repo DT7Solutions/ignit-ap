@@ -31,16 +31,11 @@
                          data-frames='[{"delay":10,"split":"lines","splitdelay":0.1,"speed":600,"split_direction":"forward","frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                          data-textAlign="['center']">
                          <h1 class="text-danger">{{ EventTimer.EventName }}</h1>
-                         <h1 class="text-sucess"> {{ EventTimer.target_datetime }}</h1>
-                         {% if remaining_days is not None %}
-                             <p>Time remaining: {{ remaining_days|default:"00" }} days
-                                 {{ remaining_hours|default:"00" }}:{{ remaining_minutes|default:"00" }}:{{ remaining_seconds|default:"00" }}</p>
-                         {% else %}
-                             <p>No countdown set</p>
-                         {% endif %}
+                         <p  style="font-size:large;">{{ EventTimer.Eventdescription | truncatewords:10}}</p>
                          
-                          <div class="timmer-block ">
-                        <div class="clock">
+                         
+                         
+                         <div class="clock">
                             <div class="days p-1">
                                 <div class="first">
                                     <div class="number">0</div>
@@ -58,9 +53,6 @@
                                     <div class="number">0</div>
                                 </div>
                             </div>
-                            {% if EventTimer %}
-                         <p style="color:#f8f9fc!important;background-color: aqua;"></p>
-                         {% endif %}
                             <div class="tick">:</div>
                             <div class="minutes p-1">
                                 <div class="first">
@@ -80,9 +72,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="d-flex labels" style="display:flex;justify-content: center;">
+                            <div class="days-m">
+                                <p>Days</p>
+                            </div>
+                            <div class="days-m">
+                                <p>Hours</p>
+                            </div>
+                            <div class="days-m">
+                                <p>Minutes</p>
+                            </div>
+                            <div class="days-m">
+                                <p>Seconds</p>
+                            </div>
                         </div>
-                    </div>
-            
+                        <button class="btn btn-primary"  target="_blank"  href="{{ EventTimer.Upload_url }}">Read More</button>
+                        </div> 
+                        
                 </li>
                 {% endif %}
                 <!-- end SLIDE  -->
@@ -233,25 +239,25 @@
     </div>
 </div> -->
 <div class="service-area-wrapper sm-top-wt pb-5">
-    <div class="service-area-top parallax" data-parallax-speed="0.75" data-bg="assets/img/service/service-bg.jpg" style="background-position: center 26.95%; background-image: url(&quot;assets/img/service/service-bg.jpg&quot;);">
-        <div class="container">
+  
+        <div class="container mb-5" >
             <div class="row">
                 <div class="col-lg-6 col-xl-5 m-auto text-center">
-                    <div class="section-title section-title--light">
+                    <div class="about-content">
                         <h2>Why Join <span>IGNITE?</span></h2>
-                        <!-- <h2 class="mb-0">We make it simple, providing best solutions</h2> -->
-                    </div>
+                       
+                
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="service-content-area">
+    <div class="service-content-area ">
         <div class="container">
             <div class="row mtn-30">
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-4  ">
                     <!-- Start Service Item -->
-                    <div class="service-item">
+                    <div class="service-item ">
                         <figure class="service-thumb">
                             <a href="#"><img src="{% static 'assets/img/home/Impact.png' %}" alt="Businex-Service"></a>
 
@@ -417,7 +423,7 @@
             {% for item in event %}
             <div class="col-sm-12 col-md-4 mb-5">
                 <div class="card card-flip h-100">
-                    <div class="card-front" style="background-image: url({{ item.image.url }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
+                    <div class="card-front" style="background-image: url({{ item.imageurl }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
                         <div class="card-body">
                             <h3 class="card-title front-title" style="font-size: 25px; color: red">{{ item.title }}</h3>
                         </div>
@@ -441,8 +447,10 @@
 <!--== Start Fun Fact Area Wrapper ==-->
 <div class="brand-logo-area sm-top4" >
     <div class="container">
-        <div class="row">
+        <div class="row ">
+            
             <div class="col-12">
+                <h2 class="text-center mb-5">Golden <span>Sponors</span></h2>
                 <div class="brand-logo-content slick-row-20">
                     <div class="brand-logo-item">
                         <a href="#"><img src="{% static 'assets/img/brand-logo/01.png' %}" alt="Ignite-Logo"/></a>
@@ -480,6 +488,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h2 class="text-center mb-5">Sliver <span>Sponors</span></h2>
                 <div class="brand-logo-content-5 slick-row-20">
                     <div class="brand-logo-item">
                         <a href="#"><img src="{% static 'assets/img/brand-logo/01.png' %}" alt="Ignite-Logo"/></a>
@@ -517,6 +526,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h2 class="text-center mb-5">Bronze <span>Sponors</span></h2>
                 <div class="brand-logo-content-6 slick-row-20">
                     <div class="brand-logo-item">
                         <a href="#"><img src="{% static 'assets/img/brand-logo/01.png' %}" alt="Ignite-Logo"/></a>

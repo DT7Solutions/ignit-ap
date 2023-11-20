@@ -26,17 +26,17 @@
     <div class="container">
         <div class="contact-content-wrap">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="contact-form-area contact-method">
                         {% if eventinfo %}
     <div class="container">
         <div class="row mt-5">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <h2>{{ eventinfo.title }}</h2>
                 <p>{{ eventinfo.description }}</p>
-
+            </div>
                 <div class="row" style="width: 100%;">
-                    <div class="col-12">
+                    <div class="col-lg-4">
                         <h3>Agenda</h3>
                         <ul class="nav nav-tabs" role="tablist">
                             {% for item in agenda %}
@@ -65,7 +65,7 @@
                                      aria-labelledby="tab-{{ forloop.counter }}">
                                      <!-- Event : {{ item.event }} EventDAate : {{ item.date }} -->
                                      {% for panelist in item.panelist_set.all %}
-                                            <div class="row panelist-card">
+                                            <div class="row panelist-card d-flex">
                                                 <div class="col-lg-4 d-flex">
                                                     <div class="col-lg-6" style="width: 150px; height:150px">
                                                         <figure class="author-thumb" >
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
     </div>
 {% endif %}
                     </div>
