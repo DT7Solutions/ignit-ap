@@ -1,10 +1,11 @@
 # from urllib import request
+from datetime import datetime
 from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -108,14 +109,9 @@ def Event_detail(request,event_id):
 
 
 
-
-# views.py
-
-
-
-
+# banner
 # def countdown_view(request):
-#     countdown = Countdown.objects.first()
+#     countdown = EventTimer.objects.first()
 #     if countdown:
 #         target_datetime = datetime.combine(countdown.target_date, datetime.min.time())
        
@@ -138,6 +134,6 @@ def Event_detail(request,event_id):
 #         'remaining_minutes': remaining_minutes,
 #         'remaining_seconds': remaining_seconds,
 #     })
-#         return JsonResponse({'success': True})
+#         # return JsonResponse({'success': True})
        
 #     return render(request ,'uifiles/student-idea-submission.html',{'student_submit':student_submit}) 

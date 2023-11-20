@@ -41,6 +41,8 @@ class StudentIdeaform(models.Model):
 
 class EventTimer(models.Model):
     EventName = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='event_banners/')
+    Upload_url = models.URLField(default="")
     target_datetime = models.DateTimeField()
 
 
@@ -80,14 +82,5 @@ class Panelist(models.Model):
     def __str__(self):
         return f"{self.name} - {self.name}"
 
-# class Panel(models.Model):
-#     agenda_day = models.ForeignKey(AgendaDay, on_delete=models.CASCADE)
-#     title = models.CharField(max_length=255)
-#     description = models.TextField()
-#     start_time = models.TimeField()
-#     end_time = models.TimeField()
-#     # Add other fields as needed
 
-#     def __str__(self):
-#         return f"{self.agenda_day.event.title} - {self.agenda_day.date} - {self.title}"
 
