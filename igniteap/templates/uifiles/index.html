@@ -147,7 +147,7 @@
                 <div class="about-content ms-0">
                     <!-- <h6>Our Team</h6> -->
                     <h2>About <span>IGNITE</span></h2>
-                    <p style="text-align: justify;"><strong>Ignite</strong> isn't merely a word, nor is it just another event; it
+                    <p class="text-medium"><strong>Ignite</strong> isn't merely a word, nor is it just another event; it
                         embodies a metaphor for igniting creativity, enthusiasm, and
                         innovation. It represents a dynamic movement that unites
                         the most brilliant minds and passionate problem-solvers
@@ -188,7 +188,7 @@
                 <div class="about-content">
                     <!-- <h6>Our Services</h6> -->
                     <h2>About <span>WissionTalks</span></h2>
-                    <p style="text-align: justify;"><strong>WissionTalks</strong>, an initiative by "Wissionarie," is committed to reshaping the future of entrepreneurship by inspiring and guiding the young generation towards a purposeful vision. This platform nurtures passion and empowers it to evolve into thriving businesses. WissionTalks distinguishes itself in the ecosystem by blending quality and uniqueness.</p>
+                    <p class="text-medium"><strong>WissionTalks</strong>, an initiative by "Wissionarie," is committed to reshaping the future of entrepreneurship by inspiring and guiding the young generation towards a purposeful vision. This platform nurtures passion and empowers it to evolve into thriving businesses. WissionTalks distinguishes itself in the ecosystem by blending quality and uniqueness.</p>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@
 <div style="background-color: #f8f9fc;">
     <div class="container sm-top7">
         <h2>Our <span>Events</span></h2>
-        <p style="text-align: justify;">Are you ready to set your creativity on 
+        <p class="text-medium">Are you ready to set your creativity on 
             fire and make a meaningful impact 
             across our entire state? Welcome to 
             "IGNITE", the extraordinary statewide 
@@ -423,7 +423,7 @@
             {% for item in event %}
             <div class="col-sm-12 col-md-4 mb-5">
                 <div class="card card-flip h-100">
-                    <div class="card-front" style="background-image: url({{ item.imageurl }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
+                    <div class="card-front" style="background-image: url({{ item.image.url }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
                         <div class="card-body">
                             <h3 class="card-title front-title" style="font-size: 25px; color: red">{{ item.title }}</h3>
                         </div>
@@ -432,7 +432,7 @@
                         <div class="card-body">
                             <h3 class="card-title" style="font-size: 25px;">{{ item.title }}</h3>
                             <p class="card-text">{{ item.description }}</p>
-                            <a href="{% url 'event_detail' item.ID %}" class="btn btn-warning mb-4">View More</a>
+                            <a href="{% url 'event_detail' item.ID %}" class=" btn-small  mb-4">View More</a>
                         </div>
                     </div>
                 </div>

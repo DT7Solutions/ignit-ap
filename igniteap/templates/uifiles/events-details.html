@@ -31,14 +31,14 @@
                         {% if eventinfo %}
     <div class="container">
         <div class="row mt-5">
-            <div class="col-md-4">
+            <div class="col-12">
                 <h2>{{ eventinfo.title }}</h2>
                 <p>{{ eventinfo.description }}</p>
             </div>
                 <div class="row" style="width: 100%;">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-5">
                         <h3>Agenda</h3>
-                        <ul class="nav nav-tabs" role="tablist">
+                        <ul class="nav nav-tabs d-flex" role="tablist" style="display: flex; width: 700px;">
                             {% for item in agenda %}
                                 <li class="nav-item">
                                     <a class="nav-link {% if forloop.first %}active{% endif %}" 
@@ -65,18 +65,19 @@
                                      aria-labelledby="tab-{{ forloop.counter }}">
                                      <!-- Event : {{ item.event }} EventDAate : {{ item.date }} -->
                                      {% for panelist in item.panelist_set.all %}
-                                            <div class="row panelist-card d-flex">
+                                        <div class="container">
+                                            <div class="row panelist-card ">
                                                 <div class="col-lg-4 d-flex">
-                                                    <div class="col-lg-6" style="width: 150px; height:150px">
+                                                    <div class="col-lg-6" style="width: 100px; height:100px">
                                                         <figure class="author-thumb" >
-                                                            <a href="#"><img src="{{ panelist.image.url }}" alt="Author"></a>
+                                                            <a href="#"><img src="{{ panelist.image.url }}" alt="Author" style=" border:2px solid black; border-radius: 50%;"></a>
                                                         </figure>
-                                                    </div>
+                                                    </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <div class="col-lg-6">
                                                         <div class="comment-footer mt-8 mb-2 ">
                                                             <ul>
                                                                 <li>
-                                                                    Panelist: {{ panelist.name }}
+                                                                    <strong>Name</strong>:{{ panelist.name }}
                                                                 </li>
                                                                 <li>
                                                                     <strong>{{ panelist.designation }}</strong> 
@@ -95,6 +96,7 @@
                                                       
                                         
                                             </div>
+                                        </div>
                                     {% endfor %}
                                     <!-- Add your dynamic pricing plan generation here -->
                                 </div>

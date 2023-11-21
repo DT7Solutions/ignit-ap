@@ -61,6 +61,7 @@ def contact(request):
     return render(request ,'uifiles/contact.html') 
 
 
+
 def Partners(request):
     if request.method == 'POST':
         firstname = request.POST.get('firstname',"")

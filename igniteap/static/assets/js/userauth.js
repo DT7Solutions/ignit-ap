@@ -48,7 +48,6 @@ $(document).ready(function(){
 
 // login form
 $(document).ready(function(){
-   
     $('#login-btn').click(function(){
         let username = $('#username').val()
         let password = $('#password').val()

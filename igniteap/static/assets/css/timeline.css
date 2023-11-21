@@ -435,3 +435,21 @@ Main components
 #ifYes{
   display: none;
 }
+
+.text-medium{
+  font-size: 18px !important;
+  text-align: justify;
+}
+
+.about-content{
+  margin-left: 0px !important;
+}
+
+.btn-small{
+ /* border: 1px solid black; */
+ padding: 5px 15px;
+ border-radius: 4px;
+ color: #fff;
+ background:linear-gradient(to right, #fc7318, #fe8415, #fe9515, #fea51a, #feb423);
+ margin-top: 15px;
+}
