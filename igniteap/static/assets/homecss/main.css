@@ -462,7 +462,8 @@ px
 .clock {
     height:65px;
     
-    color: #563B56;
+    /* color: #563B56; */
+    color: #FFFFFF;
     font-size: 65px!important;
     font-family: sans-serif;
     line-height:75px!important;
@@ -518,41 +519,44 @@ px
   
   .clock .days{
     border:3px solid #ebb4c0;
+    border:5px solid #fc9616
     
   }
   .clock .hours{
     border:3px solid #ebb4c0;
-    /* border:5px solid #fdc800; */
+    border:5px solid #fc9616
   }
   .clock .minutes{
     
     border:3px solid #ebb4c0;
+    border:5px solid #fc9616
   }
   .clock .seconds{
     
     border:3px solid #ebb4c0;
+    border:5px solid #fc9616
   }
   
   
   
   .labels div:nth-child(1) p {
-    color: #6a5168;
+    color: #FFFFFF;
     font-size: large;
     margin: 0 10px;
   }
   
   .labels div:nth-child(2) p {
-    color: #6a5168;
+    color: #FFFFFF;
     font-size: large;
     margin: 0 40px;
   }
   .labels div:nth-child(3) p {
-    color: #6a5168;
+    color: #FFFFFF;
     font-size: large;
     margin: 0 0px;
   }
   .labels div:nth-child(4) p {
-    color: #6a5168;
+    color: #FFFFFF;
     font-size: large;
     /* margin: 0 15px; */
     margin:0px 0px 0px 25px;
@@ -609,7 +613,11 @@ px
       /* background-color: red; */
       margin-left: 190px;
     }
+    .clock .days{
+      border:3px solid #ebb4c0;
+      border:5px solid #fc9616;
   }
+}
   
   .number{
     font-weight: 600;

@@ -32,7 +32,7 @@
         <div class="row mt-5">
             <div class="col-12">
                 <h2>{{ eventinfo.title }}</h2>
-                <p>{{ eventinfo.description }}</p>
+                <p style="font-size: 18px;">{{ eventinfo.description }}</p>
             </div>
                 <div class="row" style="width: 100%;">
                     <div class="col-lg-12">
@@ -65,17 +65,17 @@
                                      <!-- Event : {{ item.event }} EventDAate : {{ item.date }} -->
                                      {% for panelist in item.panelist_set.all %}
                                         <div class="container">
-                                            <div class="row panelist-card ">
+                                            <div class="row panelist-card mx-2 ">
                                                 <div class="col-lg-4 d-flex">
                                                     <div class="col-lg-6" style="width: 100px; height:100px">
                                                         <figure class="author-thumb" >
-                                                            <a href="#"><img src="{{ panelist.image.url }}" alt="Author" style=" border:2px solid black; border-radius: 50%;"></a>
+                                                            <a href="#"><img src="{{ panelist.image.url }}" alt="Author" style="border-radius: 50%;"></a>
                                                         </figure>
                                                     </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <div class="col-lg-6">
-                                                        <div class="comment-footer mt-8 mb-2 ">
+                                                        <div class="comment-footer mt-8  ">
                                                             <ul>
-                                                                <li>
+                                                                <li class="mt-3">
                                                                     <strong>Name</strong>:{{ panelist.name }}
                                                                 </li>
                                                                 <li>
@@ -85,10 +85,7 @@
                                                                     <strong>{{ panelist.companeyName }}</strong> 
                                                                 </li>
                                                             </ul>
-                                                            <!-- <p>Panelist: {{ panelist.name }}</p>
-                                                            <p><strong>Duy</strong> - July 30, 2018</p> -->
-                                                          
-                                
+                                                    
                                                         </div>
                                                     </div>
                                                 </div>
