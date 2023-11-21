@@ -11,8 +11,7 @@
                 <div class="page-header-content-inner">
                     <div class="page-header-content">
                         <h2> Event Details</h2>
-                        <!-- <p>Businex always try to provide the best Business Solutions for Clinets
-                            to grow up their Business very sharply and smoothly.</p> -->
+                       
                     </div>
                 </div>
             </div>
@@ -36,7 +35,7 @@
                 <p>{{ eventinfo.description }}</p>
             </div>
                 <div class="row" style="width: 100%;">
-                    <div class="col-lg-4 mt-5">
+                    <div class="col-lg-12">
                         <h3>Agenda</h3>
                         <ul class="nav nav-tabs d-flex" role="tablist" style="display: flex; width: 700px;">
                             {% for item in agenda %}
@@ -55,11 +54,11 @@
                         </ul>
                     </div>
 
-                    <div class="col-12 mt-3">
+                    <div class="col-lg-12 mt-3">
                         <div class="tab-content">
                           
                             {% for item in agenda %}
-                                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+                                <div class="tab-pane fade col-lg-4  d-flex {% if forloop.first %}show active{% endif %}" 
                                      id="pane-{{ forloop.counter }}" 
                                      role="tabpanel" 
                                      aria-labelledby="tab-{{ forloop.counter }}">
