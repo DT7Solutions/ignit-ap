@@ -92,7 +92,7 @@ $(document).ready(function(){
 
 
 
-// student registred data
+// student idea  registred data
 $(document).ready(function(){
     $('#student-btn').submit(function(event){
         event.preventDefault();
@@ -131,13 +131,13 @@ $(document).ready(function(){
             data: data,
 
             success:function(data, status,xhr){
-                $('#login-form')[0].reset();
-                // alert("data save sucessfully")
-                if(data.success === true){
-                    window.location.href = '/studentideaform/';
-                }else{
-                    window.location.href = '/'
-                }
+                $('#student-btn')[0].reset();
+                alert("data save sucessfully")
+                // if(data.success === true){
+                //     window.location.href = '/studentideaform/';
+                // }else{
+                //     window.location.href = '/'
+                // }
             },
           
                 // if(data.success === true){
