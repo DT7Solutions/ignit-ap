@@ -154,6 +154,58 @@ $(document).ready(function(){
     });
 });
 
+
+
+// contact form====================================
+
+
+//Contact page 
+$(document).ready(function(){
+    $('#contact-btn').submit(function(event){
+        event.preventDefault();
+
+        let firstname = $('#firstname').val()
+        let lastname = $('#lastname').val()
+        let email = $('#email').val()
+        let phone = $('#phone').val()
+        let message = $('#message').val()
+        let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
+
+        let data = new FormData()
+        data.append('firstname', firstname),
+        data.append('lastname', lastname),
+        data.append('email', email),
+        data.append('phone', phone)
+        data.append('message', message),
+        data.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
+
+        $.ajax({
+            type:'POST',
+            url:'/contact/',
+            processData:false,
+            contentType:false,
+            cache:false,
+            data:data,
+            success:function(data, status,xhr){
+                $('#contact-btn')[0].reset();
+                if(data.success === true){
+                    alert('Your Request submited sucessfully!')
+                }else{
+                    alert(data.error)
+                    window.location.href = '/contact/'
+                }
+            },
+            error:function(data){
+                alert("fail, submitted data")
+            }
+           
+        })
+    })
+})
+
+// end contact form data=================================================
+
+
 // start================ banner evetn timw and date 
 function updateCountdown() {
     let eventdate_time = document.getElementById('eventdatetime');

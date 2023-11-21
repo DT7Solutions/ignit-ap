@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -48,6 +48,16 @@ def Speakers(request):
     return render(request ,'uifiles/speakers.html') 
 
 def contact(request):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname','')
+        lastname = request.POST.get('lastname','')
+        email = request.POST.get('email','')
+        phone = request.POST.get('phone','')
+        message = request.POST.get('message','')
+
+        oContact = Contact(Firstname=firstname, Lastname=lastname,Email=email,Phone=phone,Message=message)
+        oContact.save()
+        return JsonResponse({'success':True})
     return render(request ,'uifiles/contact.html') 
 
 

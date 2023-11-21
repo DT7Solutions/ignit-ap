@@ -85,3 +85,13 @@ class Panelist(models.Model):
 
 
 
+class Contact(models.Model):
+    Firstname = models.CharField(max_length=100)
+    Lastname = models.CharField(max_length=100)
+    Email = models.CharField(max_length=50)
+    Phone = models.CharField(max_length=10)
+    Message = models.CharField(max_length=500)
+
+
+    def __str__(self):
+        return self.Firstname

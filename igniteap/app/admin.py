@@ -1,6 +1,6 @@
 from django.utils.html import format_html
 from django.contrib import admin
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay,Panelist
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,Panelist,Contact
 
 
 
@@ -27,11 +27,15 @@ class AdminPanelist(admin.ModelAdmin):
 class AdminCountdown(admin.ModelAdmin):
     list_display = ('EventName','target_datetime')
 
+class AdminContact(admin.ModelAdmin):
+    list_display= ('Firstname','Lastname','Email','Phone','Message')
+
 admin.site.register(StudentIdeaform,AdminStudentForm)
 admin.site.register(EventTimer,AdminCountdown)
 admin.site.register(Event,AdminEvent)
 admin.site.register(AgendaDay,AdminAgendaDay)
 admin.site.register(Panelist,AdminPanelist)
+admin.site.register(Contact,AdminContact)
 
 
 

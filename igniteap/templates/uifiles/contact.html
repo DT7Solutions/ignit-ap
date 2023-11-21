@@ -31,13 +31,13 @@
                         <h3 style="color: #0e0067;">Send us a Message</h3>
 
                         <div class="contact-form-wrap">
-                            <form action="https://htmlmail.hasthemes.com/raju/businex-mail.php" method="post"
-                                  id="contact-form">
+                            <form action="#" method="post" id="contact-btn">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="first_name" placeholder="First Name *"
+                                                <input type="text" id="firstname" name="firstname" placeholder="First Name *"
                                                        required/>
                                             </label>
                                         </div>
@@ -46,7 +46,7 @@
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="last_name" placeholder="Last Name *" required/>
+                                                <input type="text" id="lastname" name="lastname" placeholder="Last Name *" required/>
                                             </label>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="email" name="email_address" placeholder="Email address *"
+                                                <input type="email" id="email" name="email" placeholder="Email address *"
                                                        required/>
                                             </label>
                                         </div>
@@ -63,7 +63,7 @@
                                     <div class="col-md-6">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="text" name="phone_no" placeholder="Your Phone"/>
+                                                <input type="text" id="phone" name="phone" placeholder="Your Phone"/>
                                             </label>
                                         </div>
                                     </div>
@@ -71,12 +71,12 @@
                                     <div class="col-12">
                                         <div class="single-input-item">
                                             <label for="con_message" class="sr-only m-0"></label>
-                                            <textarea name="con_message" id="con_message" cols="30" rows="7"
+                                            <textarea  id="message" name="message" cols="30" rows="7"
                                                       placeholder="Message *" required></textarea>
                                         </div>
 
                                         <div class="single-input-item mb-0 mt-40">
-                                            <button class="btn-outline">Send Message</button>
+                                            <button type="submit" class="btn-outline">Send Message</button>
                                         </div>
 
                                         <div class="form-message"></div>
