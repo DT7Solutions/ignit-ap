@@ -453,3 +453,11 @@ Main components
  background:linear-gradient(to right, #fc7318, #fe8415, #fe9515, #fea51a, #feb423);
  margin-top: 15px;
 }
+
+.widget-list li a{
+  font-size: 18px;
+}
+
+.widget-item address{
+  font-size: 18px;
+}
