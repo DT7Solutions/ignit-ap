@@ -27,12 +27,11 @@
     <table class="table table-bordered ">
         <thead>
           <tr>
-            <th scope="col">S No</th>
             <th scope="col">Name</th>
-         
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Status</th>
+            <th scope="col">Reason</th>
             <th scope="col">Idea Description</th>
             <!-- <th scope="col">Branchname</th> 
             
@@ -44,12 +43,11 @@
         <tbody>
             {% for item in student_submit %}
           <tr>
-            <th scope="row">1</th>
             <td>{{item.Firstname}} {{ item.Lastname }}</td>
             <td>{{item.Email}}</td>
             <td>{{item.Phone}}</td>
             <td>{{item.Approved}}</td>
-            <!-- <td>{{item.Branch_Name}}</td> -->
+            <td>{{item.Reason}}</td>
             <td>{{item.Idea_Description}}</td>
             <!-- <td>{{item.Upload_url}}</td> -->
             <td>{{item.Date|date:"Y-m-d"}}</td>
