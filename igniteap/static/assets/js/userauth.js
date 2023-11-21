@@ -204,7 +204,84 @@ $(document).ready(function(){
 })
 
 // end contact form data=================================================
+//  partners or colobrations=============================================
 
+
+function yesnoCheck(checkbox) {
+    if(checkbox.checked == true){
+        document.getElementById("ifYes").style.display = "block";
+    
+       
+        // document.getElementById("submit").removeAttribute("disabled");
+    }else{
+        // document.getElementById("submit").setAttribute("disabled", "disabled");
+        document.getElementById("ifYes").style.display = "none";
+   }
+}
+
+// student registred data
+$(document).ready(function(){
+    $('#collaborate-btn').submit(function(event){
+        event.preventDefault();
+        let firstname = $('#firstname').val()
+        let lastname = $('#lastname').val()
+        let email = $('#email').val()
+        let phone = $('#phone').val()
+        let barand = $('#brand').val()
+        let industry = $('#industry').val()
+
+        let Collaboration_Type = [];
+        $('input[name="check"]:checked').each(function() {
+            Collaboration_Type.push($(this).val());
+        });
+        
+        let colbtype = '';
+        if (Collaboration_Type.includes('Other')) {
+            colbtype = $('#ifYes').val();
+        } else {
+            colbtype = Collaboration_Type.join(', ');
+        }
+
+        let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
+    
+        
+
+        let data = new FormData()
+        data.append('firstname', firstname)
+        data.append('lastname', lastname)
+        data.append('email', email)
+        data.append('phone', phone)
+        data.append('barand', barand)
+        data.append('industry', industry)
+        data.append("Collaboration_Type",colbtype);
+        data.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
+
+        $.ajax({
+            type: 'POST',
+            url: '/partners/',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: data,
+
+            success:function(data, status,xhr){
+                $('#collaborate-btn')[0].reset();
+                if(data.success === true){
+                    alert("Sucessfully submited your request!")
+                }else{
+                    window.location.href = '/partners/'
+                }
+            },
+            error:function(data){
+                alert("data does not save sucessfully");
+            }
+        });
+    });
+});
+
+
+
+// end partners coloborations ==========================================
 
 // start================ banner evetn timw and date 
 function updateCountdown() {

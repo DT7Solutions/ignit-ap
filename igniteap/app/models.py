@@ -95,3 +95,15 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.Firstname
+    
+class Collaboration(models.Model):
+            FirstName = models.CharField(max_length=100)
+            LastName = models.CharField(max_length=100)
+            Email = models.EmailField(max_length=50)
+            Phone = models.CharField(max_length=10)
+            Brand_Agency = models.CharField(max_length=100)
+            Industry = models.CharField(max_length=100)
+            Collaboration_Type = models.CharField(max_length=25)
+            Date = models.DateTimeField(default=datetime.now())
+            def __str__(self):
+                return self.FirstName

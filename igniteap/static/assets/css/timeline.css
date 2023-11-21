@@ -430,3 +430,8 @@ Main components
 .blog-sec-main .card-body h3{
   margin-top: 22px;
 }
+
+
+#ifYes{
+  display: none;
+}

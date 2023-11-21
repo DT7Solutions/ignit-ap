@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact,Collaboration
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -60,6 +60,21 @@ def contact(request):
         return JsonResponse({'success':True})
     return render(request ,'uifiles/contact.html') 
 
+
+def Partners(request):
+    if request.method == 'POST':
+        firstname = request.POST.get('firstname',"")
+        lastname = request.POST.get('lastname',"")
+        email = request.POST.get('email',"")
+        phone = request.POST.get('phone',"")
+        brand_agency = request.POST.get('barand',"")
+        industry = request.POST.get('industry',"")
+        collaboration_Type = request.POST.get('Collaboration_Type',"")
+        oApplication = Collaboration(FirstName=firstname,LastName=lastname,Email=email,Phone=phone,Brand_Agency=brand_agency ,Industry=industry,Collaboration_Type=collaboration_Type)
+        oApplication.save()
+        return JsonResponse({'success': True})
+ 
+    return render(request ,'uifiles/collaborations.html') 
 
 
 def userRegister(request):
