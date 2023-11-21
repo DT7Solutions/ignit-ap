@@ -755,6 +755,11 @@ body.no-sidebar .main-header {
     max-width: 100%;
 }
 
+#jazzy-logo{
+    display: none !important;
+}
+
+
 #jazzy-collapsible .collapsible-header:hover {
     background: #007bff;
     color: white;
@@ -925,3 +930,4 @@ body.jazzmin-login-page {
     float: left;
     width: 100%;
 }
+
