@@ -92,8 +92,8 @@ def userRegister(request):
             if oUser is None:
                 oRegister = User.objects.create_user(first_name=firstname,last_name=lastname,email=email,username=user_name,password=password)
                 oRegister.save()
-                return redirect('/studentideaform/')
-                # return JsonResponse({'success': True})
+                # return redirect('/studentideaform/')
+                return JsonResponse({'success': True})
             else:
                 return JsonResponse({'success': False, 'error': 'User already exists'})
         else:

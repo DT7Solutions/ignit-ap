@@ -29,13 +29,14 @@ $(document).ready(function(){
             cache:false,
             data:data,
 
-            success:function(data,status, xhr){
-                $('#register-form')[0].reset();
-                if(data.success === true){
+            success: function(data, status, xhr) {
+                // console.log(data);
+                // $('#register-form')[0].reset();
+                if (data.success === true) {
+                    alert('Registration successful!');
                     window.location.href = '/studentideaform/';
-                } else{
-                    alert(data.error)
-                    window.location.href ='/register/'
+                } else {
+                    alert(data.error);
                 }
             },
             error:function(data){
@@ -67,9 +68,10 @@ $(document).ready(function(){
             cache:false,
             data:data,
 
-            success:function(data){
-                $('#login-form')[0].reset();
+            success:function(data, status,xhr){
+                // $('#login-form')[0].reset();
                 if(data.success === true){
+                    alert("User login successfully")
                     window.location.href = '/studentideaform/';
                 } else{
                     alert(data.error)
