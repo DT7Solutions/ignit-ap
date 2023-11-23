@@ -71,7 +71,7 @@
 
                         <div class="contact-form-wrap mx-auto">
                             <!-- id="student-form" -->
-                            <form action="#" method="post" id="student-btn"  class="student-register" >
+                            <form action="#" method="post" id="student-btn"  class="student-register" enctype="multipart/form-data" >
                                  {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
@@ -142,7 +142,7 @@
                                     <div class="col-md-12">
                                         <div class="single-input-item">
                                             <label>
-                                                <input type="file" id="pdfdocument" name="pdfdocument" accept=".pdf .docs .jpg" required/>
+                                                <input type="file" id="pdfdocument" name="pdfdocument" accept=".pdf" required/>
                                             </label>
                                         </div>
                                     </div>
