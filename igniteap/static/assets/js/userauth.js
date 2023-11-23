@@ -2,24 +2,22 @@
 $(document).ready(function(){
     $('#register-button').click(function(){
 
-        let firstname = $('#firstname').val()
-        let lastname = $ ('#lastname').val()
-        let email = $ ('#email').val()
-        // let phone = $ ('#phone').val()
-        let username = $ ('#username').val()
-        let password = $ ('#password').val()
-        let confirm_passw = $ ('#confirm_password').val()
-        let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val()
+        let firstname = $('#firstname').val();
+        let lastname = $ ('#lastname').val();
+        let email = $ ('#email').val();
+        let username = $ ('#username').val();
+        let password = $ ('#password').val();
+        let confirm_passw = $ ('#confirm_password').val();
+        let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]').val();
 
         let data = new FormData()
-        data.append("firstname", firstname),
-        data.append("lastname", lastname),
-        data.append("email", email),
-        // data.append("phone", phone),
-        data.append("username", username),
-        data.append("password", password),
-        data.append("confirm_password", confirm_passw),
-        data.append("csrfmiddlewaretoken", csrfmiddlewaretoken)
+        data.append("firstname", firstname);
+        data.append("lastname", lastname);
+        data.append("email", email);
+        data.append("username", username);
+        data.append("password", password);
+        data.append("confirm_password", confirm_passw);
+        data.append("csrfmiddlewaretoken", csrfmiddlewaretoken);
 
         $.ajax({
             type:'POST',
@@ -29,22 +27,20 @@ $(document).ready(function(){
             cache:false,
             data:data,
 
-            success: function(data, status, xhr) {
-                // console.log(data);
-                // $('#register-form')[0].reset();
+            success: function(data) {
                 if (data.success === true) {
-                    alert('Registration successful!');
-                    window.location.href = '/studentideaform/';
+                    window.location.replace('/login');
                 } else {
                     alert(data.error);
+                    window.location.replace('/register');
                 }
             },
             error:function(data){
                 alert("fail, submitted data")
             }
-        })
-    })
-})
+        });
+    });
+});
 
 
 // login form
@@ -69,9 +65,7 @@ $(document).ready(function(){
             data:data,
 
             success:function(data, status,xhr){
-                // $('#login-form')[0].reset();
                 if(data.success === true){
-                    alert("User login successfully")
                     window.location.href = '/studentideaform/';
                 } else{
                     alert(data.error)

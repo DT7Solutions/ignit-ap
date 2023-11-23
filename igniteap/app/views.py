@@ -92,17 +92,14 @@ def userRegister(request):
             if oUser is None:
                 oRegister = User.objects.create_user(first_name=firstname,last_name=lastname,email=email,username=user_name,password=password)
                 oRegister.save()
-                # return redirect('/studentideaform/')
                 return JsonResponse({'success': True})
-            else:
-                return JsonResponse({'success': False, 'error': 'User already exists'})
-        else:
-            return JsonResponse({'success': False, 'error': 'Passwords do not match'})
+            return JsonResponse({'success': False, 'error': 'User already exists'})
+        return JsonResponse({'success': False, 'error': 'Passwords do not match'})
 
     return render(request ,'uifiles/user-registration.html') 
 
 
-@login_required
+# @login_required
 def studentIdea_form(request):
     student_submit = StudentIdeaform.objects.filter(user=request.user)
     if request.method == 'POST':
