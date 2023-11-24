@@ -83,14 +83,14 @@ def userRegister(request):
         firstname = request.POST.get('firstname','')
         lastname = request.POST.get('lastname', '')
         email = request.POST.get('email', '')
-        user_name = request.POST.get('username', '')
+        username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         confirm_pass = request.POST.get('confirm_password', '')
         if password == confirm_pass:
             # oUser = User.objects.filter(username=user_name)
-            oUser = User.objects.filter(username=user_name).first()
+            oUser = User.objects.filter(username=username).first()
             if oUser is None:
-                oRegister = User.objects.create_user(first_name=firstname,last_name=lastname,email=email,username=user_name,password=password)
+                oRegister = User.objects.create_user(first_name=firstname,last_name=lastname,email=email,username=username,password=password)
                 oRegister.save()
                 return JsonResponse({'success': True})
             return JsonResponse({'success': False, 'error': 'User already exists'})
@@ -131,33 +131,3 @@ def Event_detail(request,event_id):
 
 
 
-
-
-# banner
-# def countdown_view(request):
-#     countdown = EventTimer.objects.first()
-#     if countdown:
-#         target_datetime = datetime.combine(countdown.target_date, datetime.min.time())
-       
-        
-#         current_datetime = datetime.now()
-#         remaining_time = target_datetime - current_datetime
-#         remaining_days = remaining_time.days
-#         remaining_hours, remainder = divmod(remaining_time.seconds, 3600)
-#         remaining_minutes, remaining_seconds = divmod(remainder, 60)
-#     else:
-#         remaining_days = remaining_hours = remaining_minutes = remaining_seconds = None
-#     print("Remaining Days:", remaining_days)
-#     print("Remaining Hours:", remaining_hours)
-#     print("Remaining Minutes:", remaining_minutes)
-#     print("Remaining Seconds:", remaining_seconds)
-
-#     return render(request, 'uifiles/index.html', {
-#         'remaining_days': remaining_days,
-#         'remaining_hours': remaining_hours,
-#         'remaining_minutes': remaining_minutes,
-#         'remaining_seconds': remaining_seconds,
-#     })
-#         # return JsonResponse({'success': True})
-       
-#     return render(request ,'uifiles/student-idea-submission.html',{'student_submit':student_submit}) 
