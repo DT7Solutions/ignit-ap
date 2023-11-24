@@ -46,21 +46,27 @@ class EventTimer(models.Model):
     Upload_url = models.URLField(default="")
     target_datetime = models.DateTimeField()
 
-
     def __str__(self):
         return self.EventName
 
 
 
-from django.db import models
+
+EVENTSTATUS = (
+        ('active', 'active'),
+        ('inactive', 'inactive')
+       
+)
 
 class Event(models.Model):
     ID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
+    slug = models.CharField(max_length=200,unique=True,null=True)
     description = models.TextField()
     date = models.DateField()
     location = models.CharField(max_length=255)
     image = models.ImageField(upload_to='event_images/')
+    activeEvent = models.CharField(choices=EVENTSTATUS, max_length=30, default='active')
     # Add other fields as needed
 
     def __str__(self):

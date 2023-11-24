@@ -433,7 +433,7 @@
                         <div class="card-body">
                             <h3 class="card-title" style="font-size: 25px;">{{ item.title }}</h3>
                             <p class="card-text">{{ item.description }}</p>
-                            <a href="{% url 'event_detail' item.ID %}" class=" btn-small  mb-4">View More</a>
+                            <a href="{% url 'event-details' item.slug %}" class=" btn-small  mb-4">View More</a>
                         </div>
                     </div>
                 </div>

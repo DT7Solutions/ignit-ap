@@ -37,7 +37,7 @@ def Home(request):
     timercount = EventTimer.objects.first()
     x =  timercount
     print('message ok',timercount)
-    events = Event.objects.all()
+    events = Event.objects.filter(activeEvent="active").order_by("-ID", "activeEvent")[:3]
     return render(request ,'uifiles/index.html',{"EventTimer":timercount,"event":events}) 
 
 
@@ -46,6 +46,10 @@ def About(request):
 
 def Speakers(request):
     return render(request ,'uifiles/speakers.html') 
+
+def events(request):
+    events = Event.objects.all().order_by("-ID")
+    return render(request ,'uifiles/events.html',{"event":events}) 
 
 def contact(request):
     if request.method == 'POST':
@@ -123,8 +127,8 @@ def studentIdea_form(request):
 
 
 
-def Event_detail(request,event_id):
-    event_info= Event.objects.get(ID=event_id)
+def Event_detail(request,slug):
+    event_info= Event.objects.get(slug=slug)
     agenda_dates= AgendaDay.objects.filter(event=event_info)
 
     return render(request, 'uifiles/events-details.html',{"eventinfo":event_info,"agenda":agenda_dates})
