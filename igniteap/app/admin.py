@@ -1,6 +1,6 @@
 from django.utils.html import format_html
 from django.contrib import admin
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay,Panelist,Contact,Collaboration
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,Panelist,Contact,Collaboration,Speakers,SpeakersCategory
 
 
 
@@ -30,6 +30,12 @@ class AdminCountdown(admin.ModelAdmin):
 class AdminContact(admin.ModelAdmin):
     list_display= ('Firstname','Lastname','Email','Phone','Message')
 
+class AdminSpeakerscategory(admin.ModelAdmin):
+    list_display= ('category')
+
+class AdminSpeakers(admin.ModelAdmin):
+    list_display= ('category','name','companeyName','designation','image')
+
 class AdminCollaborationForm(admin.ModelAdmin):
     list_display=('FirstName','LastName','Email' ,'Phone','Brand_Agency','Industry','Collaboration_Type')
     list_filter= ['Date']
@@ -42,6 +48,8 @@ admin.site.register(AgendaDay,AdminAgendaDay)
 admin.site.register(Panelist,AdminPanelist)
 admin.site.register(Contact,AdminContact)
 admin.site.register(Collaboration,AdminCollaborationForm)
+admin.site.register(Speakers,AdminSpeakers)
+admin.site.register(SpeakersCategory,AdminSpeakerscategory)
 
 
 

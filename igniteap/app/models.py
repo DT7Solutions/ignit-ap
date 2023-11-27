@@ -113,3 +113,20 @@ class Collaboration(models.Model):
             Date = models.DateTimeField(default=datetime.now())
             def __str__(self):
                 return self.FirstName
+            
+
+# spackers
+class SpeakersCategory(models.Model):
+    category = models.CharField(max_length=100)
+    def __str__(self):
+                return self.category
+    
+class Speakers(models.Model):
+    category = models.ForeignKey(SpeakersCategory, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    companeyName = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='panelist_images/')
+    def __str__(self):
+        return f"{self.name} - {self.name}"
+   

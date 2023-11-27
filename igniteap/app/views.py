@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact,Collaboration
+from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact,Collaboration,Speakers
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -45,7 +45,8 @@ def About(request):
     return render(request ,'uifiles/about.html') 
 
 def Speakers(request):
-    return render(request ,'uifiles/speakers.html') 
+    speakers= Speakers.objects.all()
+    return render(request ,'uifiles/speakers.html',{'speakers':speakers}) 
 
 def events(request):
     events = Event.objects.all().order_by("-ID")
