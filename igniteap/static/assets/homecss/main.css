@@ -69,7 +69,7 @@ body {
 }
 
 .h2, h2 span{
-    color: #FD9007;
+    color: #FD9007 !important;
 }
 
 /* .home-two-about-area {

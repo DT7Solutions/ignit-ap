@@ -44,9 +44,9 @@ def Home(request):
 def About(request):
     return render(request ,'uifiles/about.html') 
 
-def Speakers(request):
-    speakers= Speakers.objects.all()
-    return render(request ,'uifiles/speakers.html',{'speakers':speakers}) 
+def speakers(request):
+    speakers = Speakers.objects.all()  
+    return render(request, 'uifiles/speakers.html', {'speakers': speakers})
 
 def events(request):
     events = Event.objects.all().order_by("-ID")

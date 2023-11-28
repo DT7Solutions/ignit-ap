@@ -7,7 +7,7 @@
 
 
 <!--== Start Page Header Area ==-->
-<div class="page-header-area bg-img bg-dark" data-bg="{% static 'assets/img/page-header.jpg">
+<div class="page-header-area bg-img bg-dark" data-bg="{% static 'assets/img/page-header.jpg' %}">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-8 m-auto text-center">
@@ -30,8 +30,8 @@
         <div class="row service-list">
             {% for item in event %}
             <div class="col-sm-12 col-md-4 mb-5">
-                <div class="card card-flip h-100" style="border: none; background:black; opacity:1">
-                    <div class="card-front" style="background-image: url({{ item.image.url }}); background-size: cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
+                <div class="card card-flip h-100" style="border: none; opacity:1">
+                    <div class="card-front" style="background-image: url({{ item.image.url }}); background-size:cover; height: 100%; opacity: 0.7; background-color: rgba(0, 0, 0, 0.945); ">
                         <div class="card-body">
                             <h3 class="card-title front-title1" style="margin-top: -15px;">{{ item.title }}</h3>
                         </div>
@@ -39,7 +39,7 @@
                     <div class="card-back">
                         <div class="card-body">
                             <h3 class="card-title" style="font-size: 25px;">{{ item.title }}</h3>
-                            <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text card-text-descript">{{ item.description }}</p>
                             <a href="{% url 'event-details' item.slug %}" class=" btn-small  mb-4">View More</a>
                         </div>
                     </div>

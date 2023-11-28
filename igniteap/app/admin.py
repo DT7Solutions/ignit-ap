@@ -31,7 +31,7 @@ class AdminContact(admin.ModelAdmin):
     list_display= ('Firstname','Lastname','Email','Phone','Message')
 
 class AdminSpeakerscategory(admin.ModelAdmin):
-    list_display= ('category')
+    list_display= ('category',)
 
 class AdminSpeakers(admin.ModelAdmin):
     list_display= ('category','name','companeyName','designation','image')

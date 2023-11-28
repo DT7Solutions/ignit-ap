@@ -53,7 +53,7 @@
 
 <!--== Start Header Area Wrapper ==-->
 <header class="header-area">
-    <div class="container">
+    <div class="container top-navbar">
         <div class="row align-items-center">
             <div class="col-5 col-lg-2">
                 <!-- Start Logo Area -->
@@ -70,7 +70,7 @@
                         <li class="has-submenu"><a href="/">Home</a></li>
                         <li class="has-submenu"><a href="/about/">About Us</a></li>
                         <li class="has-submenu"><a href="/speakers/">Speakers</a></li>
-                        <!-- <li class="has-submenu"><a href="/partners/">Partners</a></li> -->
+                        <li class="has-submenu"><a href="/partners/">Partners</a></li>
                         <li class="has-submenu1"><a href="/events/">Events</a></li>
                         <li class="has-submenu1"><a href="/contact/">Contact</a></li>
                     </ul>
@@ -78,7 +78,7 @@
                 <!-- End Navigation Area -->
             </div>
 
-            <div class="col-7 col-lg-3">
+            <div class="col-lg-3">
                 
                 <div class="header-action text-end login-user-btn">
                     <!-- {{ request.user.first_name }} -->
@@ -96,8 +96,21 @@
 </header>
 <!--== End Header Area Wrapper ==-->
 
+
+
+<!-------------Fedback area start-------------------->
+
+
+
 {% block content %}
 {% endblock %}
+
+<!----- Feedback area end------->
+
+
+
+
+
 
 
 <!--== Start Footer Area Wrapper ==-->
@@ -111,7 +124,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-8 col-lg-6">
                             <h2 class="text-light">Get Started Today</h2>
-                            <p class="text-light">Are you ready to set your creativity on 
+                            <p class="text-light text-medium">Are you ready to set your creativity on 
                                 fire and make a meaningful impact 
                                 across our entire state? Welcome to 
                                 "IGNITE".</p>
@@ -316,6 +329,180 @@ info@igniteap.com <br>
 <script src="{% static 'assets/js/revslider/extensions/revolution.extension.parallax.min.js' %}"></script>
 <script src="{% static 'assets/js/revslider/extensions/revolution.extension.slideanims.min.js' %}"></script>
 <script src="{% static 'assets/js/revslider/extensions/revolution.extension.video.min.js' %}"></script>
+
+<script>
+var $feedDrawer = null;
+var $feedError = null;
+var $feedForm = null;
+var $feedSuccess = null;
+var $feedTrigger = null;
+var feedSessInfo = null;
+
+$(function () {
+  createFeedbackForm();
+  $feedTrigger.click(showDrawer);
+  if ($.browser.msie) {
+    $feedDrawer.addClass("isie");
+  }
+});
+
+function ajaxToggleForm(toggle) {
+  if (toggle.on && toggle.reset) {
+    $("#feedbackForm #description, #feedbackForm #details").val("");
+    $feedForm.find("textarea").html("");
+    $feedDrawer.removeClass("loading");
+    $feedForm.show();
+  } else if (toggle.on && !toggle.reset) {
+    $feedDrawer.removeClass("loading");
+    $feedForm.show();
+  } else {
+    $feedForm.hide();
+    $feedDrawer.addClass("loading");
+  }
+}
+
+function createFeedbackForm() {
+  var url = document.location;
+  feedSessInfo = {
+    userId: "123456789",
+    userName: "AJ Webb",
+    userCompany: "Company XYZ",
+    userEmail: "aj.webb@companyxyz.com",
+    admin: "#"
+  };
+
+  //create drawer
+  var $drawer = '<div id="feedbackDrawer">';
+  //create form
+  $drawer += '<div id="feedbackForm">';
+  $drawer += "<form>";
+  $drawer += "<h2>Submit Feedback123</h2>";
+  
+ 
+  $drawer += "<button>Download</button>";
+  $drawer += "</form>";
+  $drawer += "</div>";
+  //end form
+  
+  //create trigger
+  $drawer += '<div id="feedbackTrigger">Event';
+  $drawer += '<span id="close">&raquo;</span>';
+  $drawer += "</div>";
+  //end trigger
+  $drawer += "</div>";
+  //end drawer
+  $("body").append($drawer);
+
+  //set global vars
+  $feedDrawer = $("#feedbackDrawer");
+  $feedError = $("#feedbackError");
+  $feedForm = $("#feedbackForm");
+  $feedSuccess = $("#feedbackSuccess");
+  $feedTrigger = $("#feedbackTrigger");
+}
+
+function initDrawerFunctions() {
+  $feedDrawer.data("initLoad", true);
+  $feedDrawer.find("button").button();
+  $feedForm.find("form").submit(submitFeedback);
+  $feedSuccess.find("button").click(function () {
+    ajaxToggleForm({ on: true, reset: true });
+    $(this).parent().hide();
+  });
+  $feedError.find("button").click(function () {
+    ajaxToggleForm({ on: true, reset: false });
+    $(this).parent().hide();
+  });
+  validateFeedback($feedForm.find("form"));
+  if (!Modernizr.input.placeholder) $feedForm.find(".field").placeholder();
+}
+
+function showDrawer() {
+  if (!$feedDrawer.data("initLoad")) initDrawerFunctions();
+  $feedDrawer.toggleClass("showDrawer");
+  return false;
+}
+
+
+function submitFeedback() {
+  var pdfFileName = 'igniteap/pdf/IGNITE__AP_Website_1_2.pdf';
+  console.log("File Path:", pdfFileName);
+  var downloadLink = document.createElement('a');
+  downloadLink.href = pdfFileName;
+  downloadLink.download = 'IGNITE__AP_Website_1_2.pdf';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+// function submitFeedback() {
+//   if ($feedForm.find("form").valid()) {
+//     var formData = $(this).serialize();
+//     ajaxToggleForm({ on: false, reset: false });
+//     $.ajax({
+//       type: "POST",
+//       url: feedSessInfo.admin,
+//       data: formData,
+//       success: function (result) {
+//         // console.log(result);
+//         var data = JSON.parse(result);
+//         if (data.status == "success") {
+//           $feedDrawer.removeClass("loading");
+//           $feedSuccess.show();
+//         } else {
+//           //TODO: Show the error message returned
+//           $feedDrawer.removeClass("loading");
+//           $feedError.show();
+//         }
+//       },
+//       error: function (result, resultTxt, errorMsg) {
+//         // console.log([result, resultTxt, errorMsg]);
+//         $feedDrawer.removeClass("loading");
+//         $feedError.show();
+//       }
+//     });
+//   }
+//   return false;
+// }
+
+// function validateFeedback($form) {
+//   $form.validate({
+//     focusInvalid: false,
+//     ignore: ":hidden .ignore",
+//     rules: {
+//       description: {
+//         required: true,
+//         maxlength: 50
+//       },
+//       details: {
+//         required: false,
+//         maxlength: 3500
+//       }
+//     },
+//     messages: {
+//       description: {
+//         required: "Short Description is required",
+//         maxlength: "Please limit your description to {0} characters"
+//       },
+//       details: {
+//         maxlength: "Please limit Idea Details to {0} characters"
+//       }
+//     },
+//     errorPlacement: function (error, element) {
+//       error.insertBefore(element);
+//     },
+//     highlight: function (element, errorClass) {
+//       $(element).addClass(errorClass);
+//       $("label ." + errorClass).removeProp("style");
+//     },
+//     unhighlight: function (element, errorClass) {
+//       $(element).removeClass(errorClass);
+//     }
+//   });
+// }
+// </script>
+
+
 
 <!--=== REVOLUTION JS ===-->
 <script src="{% static 'assets/js/revslider/rev-active.js' %}"></script>
