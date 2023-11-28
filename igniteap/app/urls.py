@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Home,About,contact,userRegister,studentIdea_form,Login,logout_view,Event_detail,speakers,Partners,events
+from .views import Home,About,contact,userRegister,studentIdea_form,Login,logout_view,Event_detail,speakers,Partners,events,download_pdf
 
 urlpatterns = [
     path('', Home, name="Home"),
@@ -13,5 +13,6 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('events/',events,name="events"),
     path('event-details/<str:slug>/', Event_detail, name='event-details'),
+    path('downloadbroacher/',download_pdf,name="downloadbroacher"),
 
 ]

@@ -1,12 +1,14 @@
 # from urllib import request
 from datetime import datetime
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import FileResponse, HttpResponse, JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import StudentIdeaform,EventTimer,Event,AgendaDay,EventTimer,Contact,Collaboration,Speakers
 from django.contrib.auth import authenticate,login,logout
+from django.conf import settings
+import os
 
 # Create your views here.
 
@@ -135,4 +137,9 @@ def Event_detail(request,slug):
     return render(request, 'uifiles/events-details.html',{"eventinfo":event_info,"agenda":agenda_dates})
 
 
-
+def download_pdf(request):
+    pdf_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'pdf', 'm2-brouchure.pdf')
+    with open(pdf_file_path, 'rb') as pdf_file:
+        response = HttpResponse(pdf_file.read(), content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="eventname.pdf"'
+        return response
