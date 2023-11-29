@@ -825,6 +825,9 @@ label {
   padding-bottom: 50px;
 }
 
+.team-area-wrapper .team-content-wrap .team-mem-item{
+  margin-bottom: 80% !important;
+}
 
 }
 
