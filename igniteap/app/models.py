@@ -42,7 +42,7 @@ class StudentIdeaform(models.Model):
 class EventTimer(models.Model):
     EventName = models.CharField(max_length=100)
     Eventdescription = models.TextField(default='')
-    image = models.ImageField(upload_to='event_banners/')
+    image = models.ImageField(upload_to='uploads/')
     Upload_url = models.URLField(default="")
     target_datetime = models.DateTimeField()
 
@@ -65,7 +65,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateField()
     location = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='event_images/')
+    image = models.ImageField(upload_to='uploads/')
     activeEvent = models.CharField(choices=EVENTSTATUS, max_length=30, default='active')
     # Add other fields as needed
 
@@ -85,7 +85,7 @@ class Panelist(models.Model):
     name = models.CharField(max_length=255)
     companeyName = models.CharField(max_length=255,default='')
     designation = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='panelist_images/')  #
+    image = models.ImageField(upload_to='uploads/')  #
     def __str__(self):
         return f"{self.name} - {self.name}"
 
@@ -126,7 +126,7 @@ class Speakers(models.Model):
     name = models.CharField(max_length=255)
     companeyName = models.CharField(max_length=255)
     designation = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='panelist_images/')
+    image = models.ImageField(upload_to='uploads/')
     linkedin_url = models.URLField(default="")
     def __str__(self):
         return f"{self.name} - {self.name}"

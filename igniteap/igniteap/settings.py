@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-pqdtjqb)i#p+av5#4%uz6er_zot8^c)ad3=0#=4hw7#de492sx
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+# '15.2.6.128.82','test.igniteap.com','www.test.igniteap.com'
 
 # Application definition
 
@@ -140,7 +140,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
-UPLOAD_URL = "/media/"
+UPLOAD_URL ='uploads'
 # STATICFILES_DIRS =[
 #     STATIC_DIR,
 # ]
@@ -150,7 +150,8 @@ if DEBUG:
 else:
     STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+UPLOAD_ROOT = os.path.join(BASE_DIR, 'upload')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
