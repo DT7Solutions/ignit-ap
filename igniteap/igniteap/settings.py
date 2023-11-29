@@ -89,6 +89,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#         'sql_mode': 'traditional',
+#         },
+#         'NAME': 'igniteap',
+#         'USER': 'admin',
+#         'PASSWORD': 'igniteap',
+#         'HOST': 'igniteap.cybmu7zhd4hk.ap-south-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
