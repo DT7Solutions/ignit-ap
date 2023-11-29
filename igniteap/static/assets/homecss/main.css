@@ -139,7 +139,7 @@ body {
 .sm-top7 {
     margin-top: 0px;
     padding-top: 50px !important;
-    padding-bottom: 50px;
+    padding-bottom: 10px !important;
 }
 
 .widget-list li a:hover {
@@ -262,6 +262,7 @@ body {
     height: 100%;
     width: 100%;
 }
+
 
 
 @media only screen and (min-width: 1200px) {

@@ -52,13 +52,13 @@
 <body>
 
 <!--== Start Header Area Wrapper ==-->
-<header class="header-area">
-    <div class="container top-navbar">
+<header class="header-area sticky">
+    <div class="container">
         <div class="row align-items-center">
             <div class="col-5 col-lg-2">
                 <!-- Start Logo Area -->
                 <div class="logo-area">
-                    <a href="/"><img src="{% static 'assets/img/ignite-ap-main-footer-logo.png' %}" alt="Ignite-Logo"></a>
+                    <a href="/"><img src="{% static 'assets/img/ignite-ap-main-footer-logo.png' %}" alt="Businex-Logo"></a>
                 </div>
                 <!-- End Logo Area -->
             </div>
@@ -73,23 +73,36 @@
                         <li class="has-submenu"><a href="/partners/">Partners</a></li>
                         <li class="has-submenu1"><a href="/events/">Events</a></li>
                         <li class="has-submenu1"><a href="/contact/">Contact</a></li>
+                        <li class="mobial-li">
+                            <div class="mobial-login">
+                                {% if not request.user.is_authenticated %}
+                            <a href="/login/" class="tel-no">Login</a>
+                            {% else %}
+                            <a href="/logout/"><span class="log-out ">LogOut</span></a>
+                            {% endif %}
+                            </div>
+                        </li>
+                        
+                        <!-- <li><a href="contact.html">Contact</a></li> -->
                     </ul>
                 </div>
                 <!-- End Navigation Area -->
             </div>
 
-            <div class="col-lg-3">
-                
-                <div class="header-action text-end login-user-btn">
-                    <!-- {{ request.user.first_name }} -->
-                    {% if not request.user.is_authenticated %}
-                    <a href="/login/" class="tel-no"><i class="fa fa-user-circle"></i>&nbsp;Login</a>
-                {% else %}
-                    <a href="/logout/"><span class="log-out "><i class="fa fa-user-circle mx-2"></i>LogOut</span></a>
-                {% endif %}
+            <div class="col-7 col-lg-3">
+                <!-- Start Header Action Area -->
+                <div class="header-action text-end">
+                    <button class="btn-cog">
+                            <!-- {{ request.user.first_name }} -->
+                            {% if not request.user.is_authenticated %}
+                            <a href="/login/" class="tel-no"><i class="fa fa-user-circle"></i>&nbsp;Login</a>
+                            {% else %}
+                            <a href="/logout/"><span class="log-out "><i class="fa fa-user-circle mx-2"></i>LogOut</span></a>
+                            {% endif %}
+                    </button>
                     <button class="btn-menu d-lg-none"><i class="fa fa-bars"></i></button>
                 </div>
-             
+                <!-- End Header Action Area -->
             </div>
         </div>
     </div>
@@ -188,15 +201,15 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-lg-3">
+                <div class="col-md-4 col-lg-4">
                     <div class="widget-item">
                         <h4 class="widget-title" style="color: #0e0067;">Contact</h4>
                         <div class="widget-body">
-                            <address>C/o Totalfresh H.O
+                            <address>C/o H.O
 Above Indian Bank, Gowthama Budha Road, 
 Mangalagiri, Andhra Pradesh 522503<br>
 info@igniteap.com <br>
-+91 91330 63307
++91 91330 63307,6304446078
                             </address>
                         </div>
                     </div>

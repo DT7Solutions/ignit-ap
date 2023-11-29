@@ -27,12 +27,12 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="team-mem-item">
                     <figure class="member-pic">
-                        <img src="{% static 'assets/img/team/01.jpg' %}" alt="Team-Businex">
+                        <img src="{{ item.image.url }}" alt="Team-Businex">
                     </figure>
                     <div class="member-info">
                         <h5><a href="#" class="stretched-link">{{item.name}}</a></h5>
                         <span class="designation">CTO &amp; Founder</span><br/>
-                        <span class="designation"><a href="#" class="stretched-link"><i class="mdi mdi-linkedin"></i></a></span>
+                        <span class="designation"><a href="{{item.linkedin_url}}" class="stretched-link"><i class="mdi mdi-linkedin"></i></a></span>
                     </div>
                 </div>
             </div>

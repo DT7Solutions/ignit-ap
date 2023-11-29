@@ -127,6 +127,7 @@ class Speakers(models.Model):
     companeyName = models.CharField(max_length=255)
     designation = models.CharField(max_length=255)
     image = models.ImageField(upload_to='panelist_images/')
+    linkedin_url = models.URLField(default="")
     def __str__(self):
         return f"{self.name} - {self.name}"
    
