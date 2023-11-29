@@ -57,11 +57,11 @@
                         <div class="tab-content">
                           
                             {% for item in agenda %}
-                                <div class="tab-pane fade col-lg-4  d-flex {% if forloop.first %}show active{% endif %}" 
+                                <div class="tab-pane fade col-lg-4  {% if forloop.first %}show active{% endif %}" 
                                      id="pane-{{ forloop.counter }}" 
                                      role="tabpanel" 
                                      aria-labelledby="tab-{{ forloop.counter }}">
-                                     <!-- Event : {{ item.event }} EventDAate : {{ item.date }} -->
+                                
                                      {% for panelist in item.panelist_set.all %}
                                         <div class="container">
                                             <div class="row panelist-card mx-2 ">
@@ -93,7 +93,6 @@
                                             </div>
                                         </div>
                                     {% endfor %}
-                                    <!-- Add your dynamic pricing plan generation here -->
                                 </div>
                             {% endfor %}
                         </div>
