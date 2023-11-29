@@ -818,6 +818,7 @@ label {
 .bg-img-two {
   background: no-repeat center center;
   background-size: cover;
+  height: auto !important;
 }
 
 .page-header-content h2 {
